@@ -1,0 +1,66 @@
+{
+  "name": "nexus-scripts",
+  "version": "0.0.1",
+  "description": "A script to up a webpack server for web development",
+  "keywords": [
+    "webpack",
+    "react"
+  ],
+  "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
+  "homepage": "https://github.com/GiancarlosIO/webpack-nexus#readme",
+  "license": "MIT",
+  "main": "lib/nexus-scripts.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiancarlosIO/webpack-nexus.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/GiancarlosIO/webpack-nexus/issues"
+  },
+  "bin": {
+    "nexus-scripts": "./bin/nexus-scripts.js"
+  },
+  "dependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.4",
+    "@babel/node": "7.2.2",
+    "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/plugin-proposal-decorators": "7.4.4",
+    "@babel/plugin-proposal-export-default-from": "7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/plugin-transform-modules-commonjs": "7.4.4",
+    "@babel/plugin-transform-react-constant-elements": "7.2.0",
+    "@babel/plugin-transform-react-inline-elements": "7.2.0",
+    "@babel/polyfill": "7.4.4",
+    "@babel/preset-env": "7.4.4",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-typescript": "7.3.3",
+    "@babel/register": "7.4.4",
+    "@babel/runtime": "7.4.4",
+    "babel-loader": "8.0.5",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.24",
+    "babel-plugin-transform-remove-console": "6.9.4",
+    "babel-plugin-transform-remove-debugger": "6.9.4",
+    "cors": "2.8.5",
+    "html-webpack-plugin": "3.2.0",
+    "ip": "1.1.5",
+    "terser-webpack-plugin": "1.2.3",
+    "webpack": "4.30.0",
+    "webpack-build-notifier": "1.0.2",
+    "webpack-bundle-analyzer": "3.3.2",
+    "webpack-cli": "3.3.2",
+    "webpack-dev-middleware": "3.6.2",
+    "webpack-dev-server": "3.3.1",
+    "webpack-hot-middleware": "2.24.4"
+  }
+}
