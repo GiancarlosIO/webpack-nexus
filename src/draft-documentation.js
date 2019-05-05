@@ -20,6 +20,7 @@
  *  - this script should has your own dependencies
  *      - webpack, express, etc
  * - First implement for vanilla type projects and then for react
+ * - Validate if the src and index.js exists
  * Step 1:
  * - Implement the create command:
  *    - It should aks for the project name
@@ -35,4 +36,9 @@
  * Learnigns
  *  - Yarn is not adding the ^to the packages instaled 😵1
  *  - --display-reasons
+ *  - webpack has a useLocalIp option, it can serve the static files in your ip
+ *  - we can increase the maxInitialRequests
+ *
+ * TODOS:
+ * Create a custom script to verify if it is my account or not (and run it in prepublish step)
  */

@@ -1,8 +1,21 @@
-const fs = require('fs');
-const ora = require('ora');
 const { argv } = require('yargs');
+const chalk = require('chalk');
+// const ora = require('ora');
 
-const baseDir = __filename;
+const start = require('./scripts/start');
 
-console.log({ argv, baseDir });
-console.log({ argv, baseDir });
+const commands = {
+  start,
+};
+
+const commandToRun = commands[argv._[0]];
+
+if (!commandToRun) {
+  console.error(
+    chalk.red(`
+You need to specify a command to run.
+  `),
+  );
+} else {
+  commandToRun({ argv });
+}
