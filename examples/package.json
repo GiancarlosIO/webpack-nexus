@@ -5,6 +5,6 @@
   "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ../packages/nexus-scripts/lib/index.js"
+    "start": "nexus-scripts"
   }
 }
