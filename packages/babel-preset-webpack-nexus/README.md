@@ -1,6 +1,6 @@
 # `babel-preset-webpack-nexus`
 
-> TODO: description
+> Babel preset used by webpack-nexus cli
 
 ## Usage
 
