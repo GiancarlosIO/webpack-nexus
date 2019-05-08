@@ -2,8 +2,8 @@
 const path = require('path');
 const merge = require('webpack-merge');
 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
 const webpack = require('webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const createBaseConfig = (config, extraConfig) => {
   const base = merge(

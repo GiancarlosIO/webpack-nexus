@@ -8,7 +8,7 @@ module.exports = require('babel-loader').custom(() => ({
         ...(cfg.options.presets || []),
         path.resolve(
           __dirname,
-          '../../../../../../babel-preset-webpack-nexus/lib/babel-preset-webpack-nexus.js',
+          '../../../../../babel-preset-webpack-nexus/lib/babel-preset-webpack-nexus.js',
         ),
       ],
     };

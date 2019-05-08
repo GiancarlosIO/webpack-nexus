@@ -2,11 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const chalk = require('chalk');
 const ip = require('ip');
+const open = require('open');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const webpackDevConfig = require('./configurations/webpack.dev');
+
+// utils
+const clearConsole = require('../utils/clearConsole');
 
 const runServer = extraConfiguration => {
   const webpackConfig = webpackDevConfig(
@@ -25,6 +29,7 @@ const runServer = extraConfiguration => {
 
   const compiler = webpack(webpackConfig);
   const devMiddleware = webpackDevMiddleware(compiler, {
+    open: true,
     publicPath: webpackConfig.output.publicPath,
     port: extraConfiguration.PORT,
     overlay: {
@@ -69,6 +74,7 @@ const runServer = extraConfiguration => {
   app.use(hotMiddleware);
 
   app.listen(extraConfiguration.PORT, () => {
+    clearConsole();
     console.log(`
 ${chalk.green('Server successfuly started')} 🎉
 
@@ -79,6 +85,12 @@ ${chalk.blue('---------------------------------')}
 
 ${chalk.red(`Press ${chalk.italic('CTRL-C')} to stop`)}
     `);
+
+    open(
+      `http://localhost:${extraConfiguration.PORT}${
+        webpackConfig.output.publicPath
+      }`,
+    );
   });
 };
 

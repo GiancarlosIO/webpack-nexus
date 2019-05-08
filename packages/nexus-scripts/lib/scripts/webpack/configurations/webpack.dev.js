@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const webpackBaseConfig = require('./webpack.base');
 
@@ -24,7 +25,10 @@ const createDevConfig = (config, extraConfig) =>
           },
         },
         plugins: [
+          // This Webpack plugin enforces the entire path of all required modules match the exact case
+          // of the actual path on disk.
           new webpack.HotModuleReplacementPlugin(),
+          new CaseSensitivePathsPlugin(),
           new HtmlWebpackPlugin({
             inject: true,
             template: extraConfig.htmlWebpackPluginTemplate,

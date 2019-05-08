@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const server = require('./webpack/server');
+const server = require('../webpack/server');
 
 const start = ({ argv }) => {
   // set the development variables

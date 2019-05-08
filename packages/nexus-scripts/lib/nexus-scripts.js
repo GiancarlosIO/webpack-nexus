@@ -1,7 +1,21 @@
-'use strict';
+const { argv } = require('yargs');
+const chalk = require('chalk');
+// const ora = require('ora');
 
-module.exports = nexusScripts;
+const start = require('./scripts/start');
 
-function nexusScripts() {
-    // TODO
+const commands = {
+  start,
+};
+
+const commandToRun = commands[argv._[0]];
+
+if (!commandToRun) {
+  console.error(
+    chalk.red(`
+You need to specify a command to run.
+  `),
+  );
+} else {
+  commandToRun({ argv });
 }
