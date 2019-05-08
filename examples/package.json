@@ -5,7 +5,8 @@
   "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ../packages/nexus-scripts/lib/index.js start"
+    "start": "node ../packages/nexus-scripts/lib/index.js start",
+    "build": "node ../packages/nexus-scripts/lib/index.js build"
   },
   "dependencies": {
     "react": "16.8.6",
