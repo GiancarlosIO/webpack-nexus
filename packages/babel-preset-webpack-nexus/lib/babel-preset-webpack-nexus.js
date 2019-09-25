@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 module.exports = () => {
-  const isProduction = process.env.NODE_ENV;
+  const isProduction = process.env.NODE_ENV === 'production';
   const styledPlugin = [
     require('babel-plugin-styled-components'),
     {
