@@ -40,6 +40,7 @@ module.exports = {
     'max-len': 0,
     'react/no-unused-prop-types': 1,
     'import/prefer-default-export': 0,
+    'import/no-extraneous-dependencies': 0,
     import: 0,
     'func-names': 0,
     'space-before-function-paren': 0,
@@ -134,4 +135,4 @@ module.exports = {
   //     }
   //   }
   // }
-}
+};
