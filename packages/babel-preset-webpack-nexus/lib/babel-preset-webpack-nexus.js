@@ -59,15 +59,6 @@ module.exports = () => {
       production: {
         plugins: [
           styledPlugin,
-          [
-            require('babel-plugin-transform-imports'),
-            {
-              'redux-form': {
-              transform: 'redux-form/es/${member}', // eslint-disable-line
-                preventFullImport: true,
-              },
-            },
-          ],
           require('@babel/plugin-transform-react-constant-elements'),
           require('babel-plugin-transform-react-remove-prop-types'),
           // we need a polyfill to use this plugin!!!
