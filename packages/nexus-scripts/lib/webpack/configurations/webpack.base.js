@@ -31,12 +31,12 @@ const createBaseConfig = (config, extraConfig) => {
           //   type: 'javascript/auto',
           // },
           {
-            test: /\.m?js$/,
+            test: /\.m?(js|ts|tsx)$/,
             exclude: /node_modules/,
             use: {
               loader: path.join(__dirname, 'custom-babel-loader.js'),
               options: {
-                cacheDirectory: false,
+                cacheDirectory: true,
               },
             },
           },

@@ -8,14 +8,39 @@ const chalk = require('chalk');
 const start = require('./scripts/start');
 const build = require('./scripts/build');
 
-// TODO: Validate if this directories exists!
+const { ERRORS } = require('./strings');
+
 const rootAppDirectoryPath = fs.realpathSync(process.cwd());
 const srcAppDirectoryPath = path.resolve(rootAppDirectoryPath, 'src/');
-const fileAppRootPath = path.resolve(srcAppDirectoryPath, 'index.js');
+const fileAppRootPathJS = path.resolve(srcAppDirectoryPath, 'index.js');
+const fileAppRootPathTS = path.resolve(srcAppDirectoryPath, 'index.ts');
+const fileAppRootPathTSX = path.resolve(srcAppDirectoryPath, 'index.tsx');
 const htmlWebpackPluginTemplate = path.resolve(
   srcAppDirectoryPath,
   'index.html',
 );
+
+let fileAppRootPath = null;
+
+if (fs.existsSync(fileAppRootPathJS)) {
+  fileAppRootPath = fileAppRootPathJS;
+} else if (fs.existsSync(fileAppRootPathTS)) {
+  fileAppRootPath = fileAppRootPathTS;
+} else if (fs.existsSync(fileAppRootPathTSX)) {
+  fileAppRootPath = fileAppRootPathTSX;
+}
+
+if (!fileAppRootPath) {
+  return console.log(
+    chalk.red(ERRORS.mainJSFileNotExists(srcAppDirectoryPath)),
+  );
+}
+
+if (!fs.existsSync(htmlWebpackPluginTemplate)) {
+  return console.log(
+    chalk.red(ERRORS.mainHTMLFileNotExists(srcAppDirectoryPath)),
+  );
+}
 
 const PORT = argv.port || process.env.PORT || 3000;
 
