@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const webpackBase = require('./webpack.base');
 
-const createProdConfig = (config, extraConfig) =>
+const createProdConfig = (config = {}, extraConfig) =>
   merge(
     // webpackBase returns a webpack config
     webpackBase(

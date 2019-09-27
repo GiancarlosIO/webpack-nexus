@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 const webpackBaseConfig = require('./webpack.base');
 
@@ -39,6 +40,7 @@ const createDevConfig = (config, extraConfig) =>
           }),
           new webpack.NamedModulesPlugin(),
           new webpack.NoEmitOnErrorsPlugin(),
+          new WebpackBuildNotifierPlugin(),
         ],
         devtool: 'eval-source-map',
         performance: {

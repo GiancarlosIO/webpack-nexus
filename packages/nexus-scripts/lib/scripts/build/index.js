@@ -1,3 +1,3 @@
-const buid = require('./build');
+const build = require('./build');
 
 module.exports = build;
