@@ -74,7 +74,9 @@ const runServer = extraConfiguration => {
   app.use(hotMiddleware);
 
   app.listen(extraConfiguration.PORT, () => {
-    clearConsole();
+    if (extraConfiguration.clearConsole) {
+      clearConsole();
+    }
     console.log(`
 ${chalk.green('Server successfuly started')} 🎉
 
@@ -86,11 +88,13 @@ ${chalk.blue('---------------------------------')}
 ${chalk.red(`Press ${chalk.italic('CTRL-C')} to stop`)}
     `);
 
-    open(
-      `http://localhost:${extraConfiguration.PORT}${
-        webpackConfig.output.publicPath
-      }`,
-    );
+    if (extraConfiguration.openBrowser) {
+      open(
+        `http://localhost:${extraConfiguration.PORT}${
+          webpackConfig.output.publicPath
+        }`,
+      );
+    }
   });
 };
 
