@@ -14,6 +14,9 @@
     "eslint-plugin-jsx-a11y": "6.2.1",
     "eslint-plugin-react": "7.12.4"
   },
+  "scripts": {
+    "publish": "npx lerna publish"
+  },
   "dependencies": {
     "babel-eslint": "10.0.1",
     "chalk": "2.4.2",
