@@ -4009,10 +4009,10 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-nexus-scripts@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/nexus-scripts/-/nexus-scripts-0.2.0.tgz#4e58a5cb1c5616573c8e40f6c769bdbd78cfa55a"
-  integrity sha512-/N2AlkXHLGbdzUB8hxW3hvojyEtjvanvJ6WOlMB19uG4Ht7d+ikdZOcmuOxSASNBRFSgRlWHM0pVEpQou00Z1A==
+nexus-scripts@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/nexus-scripts/-/nexus-scripts-0.3.0.tgz#540876b970c0f383f33f88daa6292544a4a64990"
+  integrity sha512-/dZDNlXGlTQrEDfjjkM0RHspTKv5vsGc7Z029gcAdXfArdcgJndrwujVqXXpEk/+igOUKrCtsxm/YIgdGGQuNQ==
   dependencies:
     "@babel/cli" "7.4.4"
     "@babel/core" "7.4.4"
