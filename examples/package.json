@@ -5,10 +5,11 @@
   "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ../packages/nexus-scripts/lib/index.js start",
-    "build": "node ../packages/nexus-scripts/lib/index.js build"
+    "start": "npx nexus-scripts start",
+    "build": "npx nexus-scripts build"
   },
   "dependencies": {
+    "nexus-scripts": "^0.2.0",
     "react": "16.8.6",
     "react-dom": "16.8.6"
   }
