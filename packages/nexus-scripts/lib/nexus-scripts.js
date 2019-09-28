@@ -68,6 +68,7 @@ const commands = {
 
 const commandToRun = commands[argv._[0]];
 
+// validate argvs
 if (!argv._[0]) {
   console.error(
     chalk.red(`
