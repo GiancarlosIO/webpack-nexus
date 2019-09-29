@@ -1,0 +1,45 @@
+{
+  "name": "eslint-config-webpack-nexus",
+  "version": "0.0.1",
+  "description": "Eslint configuration user by webpack-nexus cli",
+  "author": "Giancarlos <giancarlos.isasi@gmail.com>",
+  "homepage": "https://github.com/GiancarlosIO/webpack-nexus#readme",
+  "license": "MIT",
+  "main": "lib/eslint-config-webpack-nexus.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiancarlosIO/webpack-nexus.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/GiancarlosIO/webpack-nexus/issues"
+  },
+  "peerDependencies": {
+    "eslint": "^5.3.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
+    "confusing-browser-globals": "^1.0.9",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "prettier": "^1.15.3",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "typescript": "^3.5.3"
+  }
+}
