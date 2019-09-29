@@ -1,3 +1,5 @@
+function getGitIgnoreTemplate() {
+  return `
 # Logs
 logs
 *.log
@@ -61,3 +63,7 @@ typings/
 .next
 
 dist/
+  `;
+}
+
+module.exports = getGitIgnoreTemplate;

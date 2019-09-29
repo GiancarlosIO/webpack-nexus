@@ -1,0 +1,41 @@
+{
+  "name": "webpack-nexus",
+  "version": "0.0.1",
+  "description": "A cli to create your next super duper javascript project",
+  "keywords": [
+    "webpack",
+    "react",
+    "styled-components",
+    "react-dom",
+    "nexus"
+  ],
+  "author": "Giancarlos <giancarlos.isasi@gmail.com>",
+  "homepage": "https://github.com/GiancarlosIO/webpack-nexus#readme",
+  "license": "MIT",
+  "main": "lib/webpack-nexus.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiancarlosIO/webpack-nexus.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/GiancarlosIO/webpack-nexus/issues"
+  },
+  "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "chalk": "^2.4.2",
+    "inquirer": "^7.0.0",
+    "minimist": "^1.2.0",
+    "ora": "^4.0.1"
+  }
+}
