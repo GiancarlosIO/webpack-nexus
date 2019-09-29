@@ -7,8 +7,9 @@ const chalk = require('chalk');
  * @param {Object} config
  * @param {String} config.pathToCreate
  * @param {String} config.folderName
+ * @param {Function} config.callback
  */
-function createFolder({ pathToCreate, folderName }) {
+function createFolder({ pathToCreate, folderName, callback }) {
   fs.mkdir(pathToCreate, error => {
     if (error) {
       if (error.code === 'EEXIST') {
@@ -24,6 +25,7 @@ function createFolder({ pathToCreate, folderName }) {
       }
     } else {
       console.log(chalk.green(`> Success to create the ${folderName} folder`));
+      callback({ pathToCreate, folderName, callback });
     }
   });
 }
