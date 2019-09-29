@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-webpack-nexus",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Eslint configuration user by webpack-nexus cli",
   "author": "Giancarlos <giancarlos.isasi@gmail.com>",
   "homepage": "https://github.com/GiancarlosIO/webpack-nexus#readme",
