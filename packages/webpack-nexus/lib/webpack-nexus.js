@@ -8,14 +8,18 @@ const chalk = require('chalk');
 const ora = require('ora');
 const parseArgs = require('minimist');
 
+const nexusScriptPackaageJson = require('../../nexus-scripts/package.json');
+
 const createFolder = require('./utils/createFolder');
 const installNpmPackages = require('./utils/installNpmPackages');
+const stringifyNpmPackages = require('./utils/stringifyNpmPackages');
 
 const getPackageJsonTemplate = require('./templateFiles/getPackageJsonTemplate');
 const getGitIgnoreContent = require('./templateFiles/getGitIgnoreTemplate');
 const getHtmlTemplate = require('./templateFiles/getHtmlTemplate');
 const getMainJsTempalte = require('./templateFiles/getMainJsTemplate');
 const getEslintTemplate = require('./templateFiles/getEslintTemplate');
+const getTsConfigTemplate = require('./templateFiles/getTsConfigTemplate');
 
 // 1. accept the name of the project like second param
 const argv = parseArgs(process.argv.slice(2), {
@@ -27,7 +31,7 @@ const projectName = argv._[0];
 if (!projectName) {
   console.log(
     chalk.red(
-      'We need a name of the project :(.\nEx: webpack-nexus my-new-project',
+      'We need the name of the project :(.\nEx: webpack-nexus my-new-project',
     ),
   );
   process.exit(1);
@@ -60,12 +64,21 @@ createFolder({
     fs.writeFileSync(gitignoreDestPath, gitIgnoreContent);
 
     console.log(
-      chalk.green(`> Success to copy the package.json and .gitignore files`),
+      chalk.green(`> Success to create the package.json and .gitignore files`),
     );
 
     // install the packages inside the folder
-    const coreNpmPackages =
-      'react react-dom styled-components nexus-scripts @types/react @types/react-dom @types/styled-components';
+    const npmCorePackages = {
+      react: '16.10.1',
+      'react-dom': '16.10.1',
+      'styled-components': '4.4.0',
+      'nexus-scripts': nexusScriptPackaageJson.version,
+      '@types/react': '16.9.4',
+      '@types/react-dom': '16.9.1',
+      '@types/styled-components': '4.1.19',
+      '@hot-loader/react-dom': '16.9.0',
+    };
+    const coreNpmPackages = stringifyNpmPackages(npmCorePackages);
     installNpmPackages({
       packages: coreNpmPackages,
       path: folderPath,
@@ -74,26 +87,22 @@ createFolder({
 
     // we need to install the dependencies of the eslint plugin
     const eslintPackages = {
-      '@typescript-eslint/eslint-plugin': '^1.12.0',
-      '@typescript-eslint/parser': '^1.12.0',
-      'confusing-browser-globals': '^1.0.9',
-      eslint: '^5.3.0',
-      'eslint-config-airbnb': '^17.1.1',
-      'eslint-config-prettier': '^6.0.0',
-      'eslint-plugin-import': '^2.18.0',
-      'eslint-plugin-jsx-a11y': '^6.2.3',
-      'eslint-plugin-prettier': '^3.0.0',
-      'eslint-plugin-react': '^7.14.2',
-      'eslint-plugin-react-hooks': '^1.6.1',
-      prettier: '^1.15.3',
-      typescript: '^3.5.3',
+      '@typescript-eslint/eslint-plugin': '1.12.0',
+      '@typescript-eslint/parser': '1.12.0',
+      'confusing-browser-globals': '1.0.9',
+      eslint: '5.3.0',
+      'eslint-config-airbnb': '17.1.1',
+      'eslint-config-prettier': '6.0.0',
+      'eslint-plugin-import': '2.18.0',
+      'eslint-plugin-jsx-a11y': '6.2.3',
+      'eslint-plugin-prettier': '3.0.0',
+      'eslint-plugin-react': '7.14.2',
+      'eslint-plugin-react-hooks': '1.6.1',
+      'typescript-styled-plugin': '0.14.0',
+      prettier: '1.15.3',
+      typescript: '3.5.3',
     };
-    const eslintPackagesString = Object.keys(eslintPackages).reduce(
-      (packages, packageKey) => {
-        return `${packages} ${packageKey}@${eslintPackages[packageKey]}`;
-      },
-      '',
-    );
+    const eslintPackagesString = stringifyNpmPackages(eslintPackages);
     installNpmPackages({
       packages: `eslint-config-webpack-nexus ${eslintPackagesString}`,
       path: folderPath,
@@ -144,7 +153,13 @@ build/
     const eslintignorePath = path.join(folderPath, '.eslintignore');
     fs.writeFileSync(eslintignorePath, eslintignore);
     console.log(chalk.green(`> Success to create the eslint config files`));
-  },
 
-  // ======================== tsconfig.json ========================= //
+    // ======================== tsconfig.json ========================= //
+    const tsConfig = getTsConfigTemplate();
+    const tsConfigPath = path.join(folderPath, 'tsconfig.json');
+    fs.writeFileSync(tsConfigPath, tsConfig);
+    console.log(chalk.green(`> Success to create the11 tsconfig.json file`));
+
+    // ======================== Configure vscode (eslint + ts) ========================= //
+  },
 });
