@@ -16,9 +16,6 @@ function getPackageJsonTemplate({ projectName, author }) {
   "scripts": {
     "start": "npx nexus-scripts start",
     "build": "npx nexus-scripts build"
-  },
-  "bugs": {
-    "url": "https://github.com/GiancarlosIO/webpack-nexus/issues"
   }
 }
 
