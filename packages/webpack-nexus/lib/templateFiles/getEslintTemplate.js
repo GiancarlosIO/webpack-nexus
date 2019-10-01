@@ -1,6 +1,5 @@
 function getEslintTemplate() {
-  return `
-module.exports = {
+  return `module.exports = {
   extends: 'eslint-config-webpack-nexus',
 }
 `;

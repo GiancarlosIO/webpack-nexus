@@ -4,8 +4,7 @@
  *
  */
 function getMainJsTemplate() {
-  return `
-import React from 'react';
+  return `import React from 'react';
 import ReactDOM from 'react-dom';
 
 const App = () => (
