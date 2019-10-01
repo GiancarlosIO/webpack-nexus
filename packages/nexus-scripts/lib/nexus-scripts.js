@@ -45,7 +45,7 @@ if (!fs.existsSync(htmlWebpackPluginTemplate)) {
 const PORT = argv.port || process.env.PORT || 3000;
 
 const isAnalyzerEnabled = argv.analyzer;
-const { clearConsole, openBrowser } = argv;
+const { clearConsole, openBrowser, reactProfiler } = argv;
 
 const extraConfiguration = {
   rootAppDirectoryPath,
@@ -55,6 +55,7 @@ const extraConfiguration = {
   htmlWebpackPluginTemplate,
   // extra helper vars
   isAnalyzerEnabled,
+  reactProfiler,
   clearConsole: clearConsole !== 'false',
   openBrowser: openBrowser !== 'false',
 };

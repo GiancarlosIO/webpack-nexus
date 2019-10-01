@@ -42,11 +42,55 @@ const createBaseConfig = (config, extraConfig) => {
           },
         ],
       },
-      // resolve: {
-      //   extensions,
-      //   modules,
-      //   alias,
-      // },
+      resolve: {
+        extensions: [
+          '.wasm',
+          '.mjs',
+          '.json',
+          '.js',
+          '.jsx',
+          '.ts',
+          '.tsx',
+          '.d.ts',
+        ],
+        modules: [
+          extraConfig.srcAppDirectoryPath,
+          path.resolve(extraConfig.rootAppDirectoryPath, 'node_modules'),
+        ],
+        alias: {
+          src: path.resolve(extraConfig.srcAppDirectoryPath),
+          // configure react profiler
+          // it will work in production too
+          ...(extraConfig.reactProfiler
+            ? {
+                'react-dom$': path.resolve(
+                  extraConfig.rootAppDirectoryPath,
+                  'node_modules/react-dom/profiling',
+                ),
+                'scheduler/tracing': path.resolve(
+                  extraConfig.rootAppDirectoryPath,
+                  'node_modules/scheduler/tracing-profiling',
+                ),
+              }
+            : {
+                // use the correct package for productin
+                'react-dom':
+                  process.env.NODE_ENV === 'production'
+                    ? path.resolve(
+                        extraConfig.rootAppDirectoryPath,
+                        'node_modules/react-dom',
+                      )
+                    : path.resolve(
+                        extraConfig.rootAppDirectoryPath,
+                        'node_modules/@hot-loader/react-dom',
+                      ),
+              }),
+          react: path.resolve(
+            extraConfig.rootAppDirectoryPath,
+            'node_modules/react',
+          ),
+        },
+      },
     },
     config,
   );
