@@ -1,2 +1,2 @@
 # webpack-nexus
-A simple webpack-cli to scaffold your next js project
+A simple webpack-cli to scaffold super duper js projects
