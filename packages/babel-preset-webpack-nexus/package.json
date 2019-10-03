@@ -46,6 +46,7 @@
     "babel-plugin-transform-remove-console": "6.9.4",
     "babel-plugin-transform-remove-debugger": "6.9.4",
     "core-js": "3",
+    "lodash": "4.17.13",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-hot-loader": "^4.12.14",
