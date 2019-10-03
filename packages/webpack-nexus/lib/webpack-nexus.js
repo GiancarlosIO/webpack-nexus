@@ -20,6 +20,7 @@ const getHtmlTemplate = require('./templateFiles/getHtmlTemplate');
 const getMainJsTempalte = require('./templateFiles/getMainJsTemplate');
 const getEslintTemplate = require('./templateFiles/getEslintTemplate');
 const getTsConfigTemplate = require('./templateFiles/getTsConfigTemplate');
+const getVsCodeConfig = require('./templateFiles/getVsCodeConfig');
 
 // 1. accept the name of the project like second param
 const argv = parseArgs(process.argv.slice(2), {
@@ -161,5 +162,10 @@ build/
     console.log(chalk.green(`> Success to create the11 tsconfig.json file`));
 
     // ======================== Configure vscode (eslint + ts) ========================= //
+    const vscodeConfigFolderPath = path.join(folderPath, '.vscode');
+    fs.mkdirSync(vscodeConfigFolderPath);
+    const vsConfig = getVsCodeConfig();
+    const vsConfigPath = path.join(vscodeConfigFolderPath, 'settings.json');
+    fs.writeFileSync(vsConfigPath, vsConfig);
   },
 });

@@ -11,7 +11,7 @@ function getPackageJsonTemplate({ projectName, author }) {
     "styled-components",
     "react-dom"
   ],
-  "author": "${author}",
+  "author": "${author || ''}",
   "license": "MIT",
   "scripts": {
     "start": "npx nexus-scripts start",
