@@ -1,0 +1,16 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ../packages/nexus-scripts/lib/nexus-scripts.js start",
+    "build": "node ../packages/nexus-scripts/lib/nexus-scripts.js nexus-scripts build"
+  },
+  "dependencies": {
+    "nexus-scripts": "^0.3.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  }
+}

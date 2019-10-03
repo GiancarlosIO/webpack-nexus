@@ -1,4 +1,5 @@
-# Logs
+function getGitIgnoreTemplate() {
+  return `# Logs
 logs
 *.log
 npm-debug.log*
@@ -41,7 +42,6 @@ typings/
 
 # Optional npm cache directory
 .npm
-.npmrc
 
 # Optional eslint cache
 .eslintcache
@@ -62,3 +62,7 @@ typings/
 .next
 
 dist/
+  `;
+}
+
+module.exports = getGitIgnoreTemplate;
