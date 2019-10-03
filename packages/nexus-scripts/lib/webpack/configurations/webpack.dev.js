@@ -29,6 +29,9 @@ const createDevConfig = (config, extraConfig) =>
           // This Webpack plugin enforces the entire path of all required modules match the exact case
           // of the actual path on disk.
           new webpack.HotModuleReplacementPlugin(),
+          // The webpack-cli add this plugin if the flag --progress is supplied
+          // we need to use this manually because we are running webpack with the native node api
+          new webpack.ProgressPlugin(),
           new CaseSensitivePathsPlugin(),
           new HtmlWebpackPlugin({
             inject: true,
