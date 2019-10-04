@@ -8,8 +8,6 @@ const chalk = require('chalk');
 const ora = require('ora');
 const parseArgs = require('minimist');
 
-const nexusScriptPackaageJson = require('../../nexus-scripts/package.json');
-
 const createFolder = require('./utils/createFolder');
 const installNpmPackages = require('./utils/installNpmPackages');
 const stringifyNpmPackages = require('./utils/stringifyNpmPackages');
@@ -73,7 +71,7 @@ createFolder({
       react: '16.10.1',
       'react-dom': '16.10.1',
       'styled-components': '4.4.0',
-      'nexus-scripts': nexusScriptPackaageJson.version,
+      'nexus-scripts': '', // always install the last version
       '@types/react': '16.9.4',
       '@types/react-dom': '16.9.1',
       '@types/styled-components': '4.1.19',
