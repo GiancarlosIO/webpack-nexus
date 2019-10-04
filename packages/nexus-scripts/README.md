@@ -1,11 +1,3 @@
-# `nexus-scripts`
+# Docs: https://github.com/GiancarlosIO/webpack-nexus/
 
-> TODO: description
-
-## Usage
-
-```
-const nexusScripts = require('nexus-scripts');
-
-// TODO: DEMONSTRATE API
-```
+## TODO: Create docs for this package
