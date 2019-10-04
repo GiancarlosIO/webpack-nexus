@@ -1,7 +1,7 @@
 # webpack-nexus 🐨 [![npm](https://img.shields.io/npm/dm/webpack-nexus)](https://www.npmjs.com/package/webpack-nexus) [![npm](https://img.shields.io/npm/v/webpack-nexus)](https://www.npmjs.com/package/webpack-nexus)
 
 
-### Scaffold your project in a couple of seconds. Webpack, Babel, Typescript, React, syled-components, Eslint, Prettier and VSCode config out of the box.
+### Scaffold your project in a couple of seconds. Webpack, Babel, Typescript, React, _Apollo_, syled-components, Eslint, Prettier and VSCode config out of the box.
 
 _The most successful dev work smart, not hard._
 
@@ -73,11 +73,11 @@ More commands are comming... ⏳
 
 By default it will create a .tsx file in the src folder but you can change it for a .js or .ts file.
 
-### Why i created this project?
+### Why I created this project?
 
 Well, actually I have two reasons for this:
 
-1. I hate the boilerplate i have to do to start a new project. So I created a cli to start a project in a rapid way.
+1. I hate the boilerplate I have to do to start a new project. So I created a cli to start a project in a rapid way.
 2. I want to learn how to build something like create-react-app/next.js.
 
 ### What is the difference with other projects like create-react-app or next.js?
@@ -89,9 +89,11 @@ Well, I tested create-react-app and I think it is awesome but I don't like the w
 - If you have lint errors it will throw a error. Some times I just want to test some egde cases. webpack-nexus doesn't throw a error beacause it is not configured inside webpack, it is just used to lint the files in vscode.
 - It doesn't have support for multi-entries. It can be configured for that, but again, you need to _eject_.
 - It has no styled-components installed. 😛
-- I has no configured apollo graphql. Graphql is what I always use in my projects. 😛
+- It has no configured apollo graphql. Graphql is what I always use in my projects. 😛
 
-And... It is not comparable with next.js because it is not a react framework. 👺
+react-boilerplate? I really like that, but I want a 
+
+And... It is not comparable with next.js because it is not a react framework 👺... but maybe in the future it can be? 🤔
 
 ## Browser support?
 > \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
