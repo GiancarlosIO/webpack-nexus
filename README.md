@@ -80,7 +80,11 @@ Well, actually I have two reasons for this:
 1. I hate the boilerplate I have to do to start a new project. So I created a cli to start a project in a rapid way.
 2. I want to learn how to build something like create-react-app/next.js.
 
-### What is the difference with other projects like create-react-app or next.js?
+### What is the difference with other projects like create-react-app/react-boilerplate/next.js?
+
+_I want to learn how to build something like create-react-app/next.js. I'm not trying to compite with the big current cli's/boilerplates_
+
+It has a lot of specific configurations used in all of my side-projects, so maybe you are good using the other ones.
 
 Well, I tested create-react-app and I think it is awesome but I don't like the way it works.
 
@@ -91,7 +95,8 @@ Well, I tested create-react-app and I think it is awesome but I don't like the w
 - It has no styled-components installed. 😛
 - It has no configured apollo graphql. Graphql is what I always use in my projects. 😛
 
-react-boilerplate? I really like that, but I want a 
+
+react-boilerplate? I really like that, but I just wanted a simple cli to scaffold my projects and not to clone a report every time.
 
 And... It is not comparable with next.js because it is not a react framework 👺... but maybe in the future it can be? 🤔
 
