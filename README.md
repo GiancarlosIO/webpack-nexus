@@ -11,10 +11,11 @@ Webpack nexus is a _simple_ CLI to scaffold your react projects.
 
 ## Features
 * Webpack: Dev and Prod configurations inspired by the awesome work of [React boilerplate](https://github.com/react-boilerplate/react-boilerplate) 🔨
-* Babel: ES6/ES7, Jsx and plugins configured for production. ⚛️
+* Babel: ES6/ES7, Jsx and plugins configured for dev and production mode. ⚛️
 * Styling with styled-components 💅
 * Typing with typescript and eslint ✔️
 * Auto formatter with prettier 🔄
+* vscode configured to work with eslint + typescript + prettier 💙
 * _React-apollo: coming soon..._
 * _Jest: coming soon.._
 * _Husky + lint-stagged: coming soon..._
@@ -32,6 +33,22 @@ yarn
 > webpack-nexus the-name-of-your-project
 
 It will create a folder with your project name, navigate to it.
+the-name-of-your-project
+```
+├── .vscode
+├── node_modules
+├── package.json
+├── .yarn.lock
+├── .tsconfig
+├── .gitignore
+├── .eslintrc
+├── .eslintignore
+├── dist
+└── src
+    ├── index.tsx
+    └── index.html
+```
+
 > cd the-name-of-your-project
 
 ## Start coding with:
@@ -42,6 +59,10 @@ To compile in production mode:
 
 
 That's it, happy coding! 🎉
+
+
+## Javascript ES6 / Typescript support
+By default it will create a .tsx file in the src/index.tsx
 
 ## Browser support
 > \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
