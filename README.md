@@ -36,6 +36,9 @@ Right now, this package has only one command to start your project. More is comi
 > webpack-nexus the-name-of-your-project
 
 It will create a folder with your project name, navigate to it.
+
+> cd the-name-of-your-project
+
 ```
 the-name-of-your-project
 ├── .vscode
@@ -51,8 +54,6 @@ the-name-of-your-project
     ├── index.tsx
     └── index.html
 ```
-
-> cd the-name-of-your-project
 
 ## Start coding with:
 > yarn start # or npm start
