@@ -1,6 +1,6 @@
 {
   "name": "webpack-nexus",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A cli to create your next super duper javascript project",
   "keywords": [
     "webpack",
@@ -21,6 +21,9 @@
     "lib",
     "bin"
   ],
+  "bin": {
+    "webpack-nexus": "bin/webpack-nexus.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GiancarlosIO/webpack-nexus.git"
