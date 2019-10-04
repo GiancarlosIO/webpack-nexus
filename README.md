@@ -19,7 +19,7 @@ Webpack nexus is a _simple_ CLI to scaffold your react projects.
 * _React-apollo: coming soon..._
 * _Jest: coming soon.._
 * _Husky + lint-stagged: coming soon..._
-* _webpack-nexus.js: file to configure/overrite the actual webpack configuratin, coming soon..._
+* _webpack-nexus.js: file to configure/overrite the actual webpack/babel configuratin, coming soon..._
 
 ## Usage
 
@@ -31,6 +31,8 @@ yarn
 > yarn global add webpack-nexus
 
 ## Create an app
+Right now, this package has only one command to start your project. More is coming soon...
+
 > webpack-nexus the-name-of-your-project
 
 It will create a folder with your project name, navigate to it.
@@ -90,5 +92,5 @@ Well, I tested create-react-app and I think it is awesome but I don't like the w
 
 And... It is not comparable with next.js because it is not a react framework. 👺
 
-## Browser support
+## Browser support?
 > \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
