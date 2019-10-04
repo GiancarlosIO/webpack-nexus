@@ -7,7 +7,7 @@ _The most successful dev work smart, not hard._
 
 ---
 
-Webpack nexus is a _simple_ CLI to scaffold your react projects.
+Webpack nexus is a _simple_ CLI to scaffold your javascript/react projects.
 
 ## Features
 * Webpack: Dev and Prod configurations inspired by the awesome work of [React boilerplate](https://github.com/react-boilerplate/react-boilerplate) 🔨
