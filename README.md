@@ -19,6 +19,7 @@ Webpack nexus is a _simple_ CLI to scaffold your react projects.
 * _React-apollo: coming soon..._
 * _Jest: coming soon.._
 * _Husky + lint-stagged: coming soon..._
+* _webpack-nexus.js: file to configure/overrite the actual webpack configuratin, coming soon..._
 
 ## Usage
 
@@ -61,8 +62,33 @@ To compile in production mode:
 That's it, happy coding! 🎉
 
 
-## Javascript ES6 / Typescript support
-By default it will create a .tsx file in the src folder but you can change it for a .js or .ts.
+More commands are comming... ⏳
+
+## Some questions:
+
+### I don't want to use typescript, javascript is good for me.
+
+By default it will create a .tsx file in the src folder but you can change it for a .js or .ts file.
+
+### Why i created this project?
+
+Well, actually I have two reasons for this:
+
+1. I hate the boilerplate i have to do to start a new project. So I created a cli to start a project in a rapid way.
+2. I want to learn how to build something like create-react-app/next.js.
+
+### What is the difference with other projects like create-react-app or next.js?
+
+Well, I tested create-react-app and I think it is awesome but I don't like the way it works.
+
+- You need to _eject_ to add your own webpack or babel plugins.
+- You need to _eject_ to configure prettier/eslint.
+- If you have lint errors it will throw a error. Some times I just want to test some egde cases. webpack-nexus doesn't throw a error beacause it is not configured inside webpack, it is just used to lint the files in vscode.
+- It doesn't have support for multi-entries. It can be configured for that, but again, you need to _eject_.
+- It has no styled-components installed. 😛
+- I has no configured apollo graphql. Graphql is what I always use in my projects. 😛
+
+And... It is not comparable with next.js because it is not a react framework. 👺
 
 ## Browser support
 > \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
