@@ -86,7 +86,7 @@ _I want to learn how to build something like create-react-app/next.js. I'm not t
 
 It has a lot of specific configurations used in all of my side-projects, so maybe you are good using the other ones.
 
-Well, I tested create-react-app and I think it is awesome but I don't like the way it works.
+Ok, so, I tested create-react-app and I think it is awesome but I don't like the way it works.
 
 - You need to _eject_ to add your own webpack or babel plugins.
 - You need to _eject_ to configure prettier/eslint.
