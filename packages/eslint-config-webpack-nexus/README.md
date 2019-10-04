@@ -1,11 +1,3 @@
-# `eslint-config-webpack-nexus`
+# Docs: https://github.com/GiancarlosIO/webpack-nexus/
 
-> TODO: description
-
-## Usage
-
-```
-const eslintConfigWebpackNexus = require('eslint-config-webpack-nexus');
-
-// TODO: DEMONSTRATE API
-```
+## TODO: Create docs for this package

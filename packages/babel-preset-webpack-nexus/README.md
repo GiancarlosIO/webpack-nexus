@@ -1,11 +1,3 @@
-# `babel-preset-webpack-nexus`
+# Docs: https://github.com/GiancarlosIO/webpack-nexus/
 
-> Babel preset used by webpack-nexus cli
-
-## Usage
-
-```
-const babelPresetWebpackNexus = require('babel-preset-webpack-nexus');
-
-// TODO: DEMONSTRATE API
-```
+## TODO: Create docs for this package
