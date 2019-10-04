@@ -96,9 +96,12 @@ Ok, so, I tested create-react-app and I think it is awesome but I don't like the
 - It has no apollo graphql configured. Graphql is what I always use in my projects. 😛
 
 
-react-boilerplate? I really like that, but I just wanted a simple cli to scaffold my projects and not to clone a report every time.
+react-boilerplate? I really like that, but I just wanted a simple cli to scaffold my projects and not to clone a repository every time.
 
 And... It is not comparable with next.js because it is not a react framework 👺... but maybe in the future it can be? 🤔
 
 ## Browser support?
 > \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
+
+## Issues
+This project is still in development. So, if you find some improvements or errors go ahead and create a issue. 😃
