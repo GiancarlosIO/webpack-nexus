@@ -19,7 +19,7 @@ Webpack nexus is a _simple_ CLI to scaffold your react projects.
 * _React-apollo: coming soon..._
 * _Jest: coming soon.._
 * _Husky + lint-stagged: coming soon..._
-* _webpack-nexus.js: file to configure/overrite the actual webpack/babel configuratin, coming soon..._
+* _webpack-nexus.js: file to configure/overrite the actual webpack/babel configuration, coming soon..._
 
 ## Usage
 
