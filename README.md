@@ -33,8 +33,8 @@ yarn
 > webpack-nexus the-name-of-your-project
 
 It will create a folder with your project name, navigate to it.
-the-name-of-your-project
 ```
+the-name-of-your-project
 ├── .vscode
 ├── node_modules
 ├── package.json
@@ -63,5 +63,6 @@ That's it, happy coding! 🎉
 
 ## Javascript ES6 / Typescript support
 By default it will create a .tsx file in the src folder but you can change it for a .js or .ts.
+
 ## Browser support
 > \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
