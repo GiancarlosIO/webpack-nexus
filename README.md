@@ -21,6 +21,14 @@ Webpack nexus is a _simple_ CLI to scaffold your react projects.
 * _Husky + lint-stagged: coming soon..._
 * _webpack-nexus.js: file to configure/overrite the actual webpack/babel configuration, coming soon..._
 
+## Quick links
+- [Usage](#usage)
+- [Stack used](#stack-used)
+- [Roadmap](#roadmap)
+- [Browser support](#browser-support)
+- [Some questions](#some-questions)
+- [Inspirations](#Inspirations)
+
 ## Usage
 
 ### Install
@@ -30,7 +38,7 @@ npm:
 yarn
 > yarn global add webpack-nexus
 
-## Create an app
+### Create an app
 Right now, this package has only one command to start your project. More is coming soon...
 
 > webpack-nexus the-name-of-your-project
@@ -55,7 +63,7 @@ the-name-of-your-project
     └── index.html
 ```
 
-## Start coding with:
+### Start coding with:
 > yarn start # or npm start
 
 To compile in production mode:
@@ -66,6 +74,26 @@ That's it, happy coding! 🎉
 
 
 More commands are comming... ⏳
+
+## Stack used:
+- Webpack
+- Babel
+- Typescript
+- Eslint (typescript-parser)
+- React
+- vscode configuration
+- _Jest: coming soon_
+- _Apollo client: coming soon_
+- _Lint staged + husky: coming soon_
+
+## Roadmap
+
+* [ ] Finish to implement the rest of comands (withApollo, withTypescript, withTailwind, etc).
+* [ ] Finish to implement the interactive cli. Displays questions about the configuration/stack to use.
+* [ ] Create a webpack-nexus.js config file to customize the webpack and babel configurations.
+
+## Browser support
+> \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
 
 ## Some questions:
 
@@ -100,8 +128,11 @@ react-boilerplate? I really like that, but I just wanted a simple cli to scaffol
 
 And... It is not comparable with next.js because it is not a react framework 👺... but maybe in the future it can be? 🤔
 
-## Browser support?
-> \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
+## Inspirations:
+- https://github.com/react-boilerplate/react-boilerplate
+- https://github.com/facebook/create-react-app
+- https://github.com/zeit/next.js
+- 
 
 ## Issues
-This project is still in development. So, if you find some improvements or errors go ahead and create a issue. 😃
+This project is still in development. So, if you find some improvements or errors go ahead and create an issue. 😃
