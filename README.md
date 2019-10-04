@@ -82,7 +82,7 @@ Well, actually I have two reasons for this:
 
 ### What is the difference with other projects like create-react-app/react-boilerplate/next.js?
 
-_I want to learn how to build something like create-react-app/next.js. I'm not trying to compite with the big current cli's/boilerplates_
+_I want to learn how to build something like create-react-app/next.js. I'm not trying to compete with the big current cli's/boilerplates_
 
 It has a lot of specific configurations used in all of my side-projects, so maybe you are good using the other ones.
 
