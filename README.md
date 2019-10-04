@@ -17,6 +17,7 @@ Webpack nexus is a _simple_ CLI to scaffold your react projects.
 * Auto formatter with prettier 🔄
 * _React-apollo: coming soon..._
 * _Jest: coming soon.._
+* _Husky + lint-stagged: coming soon..._
 
 ## Usage
 
@@ -30,8 +31,14 @@ yarn
 ## Create an app
 > webpack-nexus the-name-of-your-project
 
-It will create a folder with your project
+It will create a folder with your project name, navigate to it.
 > cd the-name-of-your-project
+
+## Start coding with:
+> yarn start # or npm start
+
+To compile in production mode:
+> yarn build # or npm run build
 
 That's it, happy coding! 🎉
 
