@@ -1,4 +1,4 @@
-# webpack-nexus 🐨 [![npm](https://img.shields.io/npm/dm/webpack-nexus)](https://www.npmjs.com/package/webpack-nexus) [![npm](https://img.shields.io/npm/v/webpack-nexus)](https://www.npmjs.com/package/webpack-nexus)
+# webpack-nexus 🐨 [![npm](https://img.shields.io/npm/dm/webpack-nexus)](https://www.npmjs.com/package/webpack-nexus) [![npm](https://img.shields.io/npm/v/webpack-nexus)](https://www.npmjs.com/package/webpack-nexus) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 
 ### Scaffold your project in a couple of seconds. Webpack, Babel, Typescript, React, _Apollo_, syled-components, Eslint, Prettier and VSCode config out of the box.
@@ -24,6 +24,7 @@ Webpack nexus is a _simple_ CLI to scaffold your react projects.
 ## Quick links
 - [Usage](#usage)
 - [Stack used](#stack-used)
+- [Project structure](#project-structure)
 - [Roadmap](#roadmap)
 - [Browser support](#browser-support)
 - [Some questions](#some-questions)
@@ -86,11 +87,28 @@ More commands are comming... ⏳
 - _Apollo client: coming soon_
 - _Lint staged + husky: coming soon_
 
+## Project structure
+
+This project is a mono-repo built with lerna.
+
+```
+webpack-nexus
+├── packages
+├──── babel-preset-webpack-nexus
+├──── eslint-config-webpack-nexus
+├──── nexus-scripts
+├──── webpack-nexus
+```
+
+
 ## Roadmap
 
+* [x] Finish to implement the main core packages (eslint-config, babel-preset and nexus-scripts, webpack-nexus cli).
 * [ ] Finish to implement the rest of comands (withApollo, withTypescript, withTailwind, etc).
 * [ ] Finish to implement the interactive cli. Displays questions about the configuration/stack to use.
+* [ ] Create the end-to-end tests for the CLI.
 * [ ] Create a webpack-nexus.js config file to customize the webpack and babel configurations.
+* [ ] Create a documentation of each core package.
 
 ## Browser support
 > \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
@@ -132,7 +150,7 @@ And... It is not comparable with next.js because it is not a react framework �
 - https://github.com/react-boilerplate/react-boilerplate
 - https://github.com/facebook/create-react-app
 - https://github.com/zeit/next.js
-- 
+- https://github.com/kentcdodds/kcd-scripts
 
 ## Issues
 This project is still in development. So, if you find some improvements or errors go ahead and create an issue. 😃
