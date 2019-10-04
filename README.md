@@ -40,6 +40,7 @@ It will create a folder with your project name, navigate to it.
 To compile in production mode:
 > yarn build # or npm run build
 
+
 That's it, happy coding! 🎉
 
 ## Browser support
