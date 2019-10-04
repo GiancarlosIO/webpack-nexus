@@ -74,7 +74,7 @@ To compile in production mode:
 That's it, happy coding! 🎉
 
 
-More commands are comming... ⏳
+More commands are coming... ⏳
 
 ## Stack used:
 - Webpack
