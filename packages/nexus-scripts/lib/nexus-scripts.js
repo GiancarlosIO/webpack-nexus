@@ -60,8 +60,6 @@ const extraConfiguration = {
   openBrowser: openBrowser !== 'false',
 };
 
-console.log('running start command', extraConfiguration);
-
 const commands = {
   start,
   build,
