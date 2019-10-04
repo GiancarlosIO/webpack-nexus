@@ -62,7 +62,6 @@ That's it, happy coding! 🎉
 
 
 ## Javascript ES6 / Typescript support
-By default it will create a .tsx file in the src/index.tsx
-
+By default it will create a .tsx file in the src folder but you can change it for a .js or .ts.
 ## Browser support
 > \>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9
