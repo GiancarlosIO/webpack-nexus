@@ -136,7 +136,7 @@ Ok, so, I tested create-react-app and I think it is awesome but I don't like the
 
 - You need to _eject_ to add your own webpack or babel plugins.
 - You need to _eject_ to configure/add prettier/eslint rules.
-- If you have lint errors it will throw a error. Some times I just want to test some egde cases. webpack-nexus doesn't throw a error beacause it is not configured inside webpack, it is just used to lint the files in vscode.
+- If you have lint errors it will throw a error. Some times I just want to test some egde cases. webpack-nexus doesn't throw a error because it is not configured inside webpack, it is just used to lint the files in vscode.
 - It doesn't have support for multi-entries. It can be configured for that, but again, you need to _eject_.
 - It has no styled-components installed. 😛
 - It has no apollo graphql configured. Graphql is what I always use in my projects. 😛
