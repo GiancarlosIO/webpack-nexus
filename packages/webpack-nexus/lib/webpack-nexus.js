@@ -68,14 +68,14 @@ createFolder({
 
     // install the packages inside the folder
     const npmCorePackages = {
-      react: '16.10.1',
-      'react-dom': '16.10.1',
+      react: '16.10.2',
+      'react-dom': '16.10.2',
       'styled-components': '4.4.0',
       'nexus-scripts': '', // always install the last version
-      '@types/react': '16.9.4',
+      '@types/react': '16.9.5',
       '@types/react-dom': '16.9.1',
       '@types/styled-components': '4.1.19',
-      '@hot-loader/react-dom': '16.9.0',
+      '@hot-loader/react-dom': '16.10.2',
     };
     const coreNpmPackages = stringifyNpmPackages(npmCorePackages);
     installNpmPackages({
@@ -157,7 +157,7 @@ build/
     const tsConfig = getTsConfigTemplate();
     const tsConfigPath = path.join(folderPath, 'tsconfig.json');
     fs.writeFileSync(tsConfigPath, tsConfig);
-    console.log(chalk.green(`> Success to create the11 tsconfig.json file`));
+    console.log(chalk.green(`> Success to create the tsconfig.json file`));
 
     // ======================== Configure vscode (eslint + ts) ========================= //
     const vscodeConfigFolderPath = path.join(folderPath, '.vscode');

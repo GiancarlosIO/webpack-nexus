@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-webpack-nexus",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Babel preset used by webpack-nexus cli",
   "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
   "homepage": "https://github.com/GiancarlosIO/webpack-nexus#readme",
@@ -46,11 +46,7 @@
     "babel-plugin-transform-remove-console": "6.9.4",
     "babel-plugin-transform-remove-debugger": "6.9.4",
     "core-js": "3",
-    "lodash": "4.17.13",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "react-hot-loader": "^4.12.14",
-    "styled-components": "4.2.0"
+    "react-hot-loader": "4.12.15"
   },
   "gitHead": "ba33eeea9f155c64f1acce938a145d8907b533d2"
 }
