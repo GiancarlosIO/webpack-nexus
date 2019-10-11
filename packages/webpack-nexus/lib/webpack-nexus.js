@@ -157,7 +157,7 @@ build/
     const tsConfig = getTsConfigTemplate();
     const tsConfigPath = path.join(folderPath, 'tsconfig.json');
     fs.writeFileSync(tsConfigPath, tsConfig);
-    console.log(chalk.green(`> Success to create the11 tsconfig.json file`));
+    console.log(chalk.green(`> Success to create the tsconfig.json file`));
 
     // ======================== Configure vscode (eslint + ts) ========================= //
     const vscodeConfigFolderPath = path.join(folderPath, '.vscode');
