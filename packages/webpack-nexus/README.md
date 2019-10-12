@@ -20,6 +20,7 @@ Webpack nexus is a _simple_ CLI to scaffold your javascript/react projects.
 * _Jest: coming soon.._
 * _Husky + lint-stagged: coming soon..._
 * _webpack-nexus.js: file to configure/overrite the actual webpack/babel configuration, coming soon..._
+* _Setup/configurations for atom and sublime, coming soon..._
 
 ## Quick links
 - [Usage](#usage)
@@ -138,8 +139,9 @@ Ok, so, I tested create-react-app and I think it is awesome but I don't like the
 - You need to _eject_ to configure/add prettier/eslint rules.
 - If you have lint errors it will throw a error. Some times I just want to test some egde cases. webpack-nexus doesn't throw a error because it is not configured inside webpack, it is just used to lint the files in vscode.
 - It doesn't have support for multi-entries. It can be configured for that, but again, you need to _eject_.
-- It has no styled-components installed. 😛
-- It has no apollo graphql configured. Graphql is what I always use in my projects. 😛
+- It has no styled-components installed.
+- It has no apollo graphql configured. Graphql is what I always use in my projects.
+- It has no react-hot-loader configured.
 
 
 react-boilerplate? I really like that, but I just wanted a simple cli to scaffold my projects and not to clone a repository every time.
