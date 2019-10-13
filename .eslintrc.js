@@ -1,1 +1,1 @@
-module.exports = require('./src/config/eslint.js');
+module.exports = require('./packages/eslint-config-webpack-nexus/lib/eslint-config-webpack-nexus.js');
