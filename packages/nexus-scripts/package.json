@@ -1,6 +1,6 @@
 {
   "name": "nexus-scripts",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "A script to up a webpack server for web development",
   "keywords": [
     "webpack",
@@ -39,7 +39,7 @@
     "@babel/register": "7.4.4",
     "@babel/runtime": "7.4.4",
     "babel-loader": "8.0.5",
-    "babel-preset-webpack-nexus": "^0.5.1",
+    "babel-preset-webpack-nexus": "^0.5.2",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "chalk": "2.4.2",
     "circular-dependency-plugin": "5.0.2",
@@ -52,7 +52,6 @@
     "regenerator-runtime": "0.13.2",
     "terser-webpack-plugin": "1.2.3",
     "webpack": "4.30.0",
-    "webpackbar": "4.0.0",
     "webpack-build-notifier": "1.0.2",
     "webpack-bundle-analyzer": "3.3.2",
     "webpack-cli": "3.3.2",
@@ -60,6 +59,7 @@
     "webpack-dev-server": "3.3.1",
     "webpack-hot-middleware": "2.24.4",
     "webpack-merge": "4.2.1",
+    "webpackbar": "4.0.0",
     "yargs": "13.2.2"
   },
   "gitHead": "ba33eeea9f155c64f1acce938a145d8907b533d2"
