@@ -1,6 +1,6 @@
 {
   "name": "nexus-scripts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A script to up a webpack server for web development",
   "keywords": [
     "webpack",
