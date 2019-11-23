@@ -142,11 +142,13 @@ createFolder({
     let content = '';
     if (argv.withApollo) {
       content = fs.readFileSync(
-        path.resolve(__dirname, './templateFiles/react/apollo.js', 'utf8'),
+        path.resolve(__dirname, './templateFiles/react/apollo.js'),
+        'utf8',
       );
     } else {
       content = fs.readFileSync(
-        path.resolve(__dirname, './templateFiles/react/default.js', 'utf8'),
+        path.resolve(__dirname, './templateFiles/react/default.js'),
+        'utf8',
       );
     }
     fs.writeFileSync(jsPath, `${content.trim()}\n`);
