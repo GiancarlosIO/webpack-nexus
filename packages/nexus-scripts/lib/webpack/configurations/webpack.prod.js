@@ -10,7 +10,7 @@ const createProdConfig = (config = {}, extraConfig) =>
     // webpackBase returns a webpack config
     webpackBase(
       {
-        mode: 'development',
+        mode: 'production',
         output: {
           filename: `[name].[hash].min.js`,
           chunkFilename: `[name].[chunkhash].chunk.js`,

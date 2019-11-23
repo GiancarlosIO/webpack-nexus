@@ -1,11 +1,22 @@
 /* eslint-disable global-require */
 const path = require('path');
-const merge = require('webpack-merge');
 
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const postcssPurgecss = require('@fullhuman/postcss-purgecss');
 
 const createBaseConfig = (config, extraConfig) => {
+  const isProduction = process.env.NODE_ENV === 'production';
+  const purgecss = postcssPurgecss({
+    content: [
+      path.resolve(extraConfig.rootAppDirectoryPath, 'dist/**/*.js'),
+      path.resolve(extraConfig.rootAppDirectoryPath, 'dist/**/*.html'),
+    ],
+    // Include any special characters you're using in this regular expression
+    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+  });
+
   const base = merge(
     {
       target: 'web',
@@ -30,6 +41,28 @@ const createBaseConfig = (config, extraConfig) => {
           //   include: /node_modules/,
           //   type: 'javascript/auto',
           // },
+          {
+            test: /\.(css|s[ac]ss)$/i,
+            use: [
+              // Creates `style` nodes from JS strings
+              'style-loader',
+              // Translates CSS into CommonJS
+              'css-loader',
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  plugins: [
+                    require('tailwindcss'),
+                    require('autoprefixer'),
+                    ...(isProduction ? [purgecss] : []),
+                  ],
+                },
+              },
+              // Compiles Sass to CSS
+              'sass-loader',
+            ],
+          },
           {
             test: /\.m?(js|ts|tsx)$/,
             exclude: /node_modules/,
@@ -74,16 +107,15 @@ const createBaseConfig = (config, extraConfig) => {
               }
             : {
                 // use the correct package for productin
-                'react-dom':
-                  process.env.NODE_ENV === 'production'
-                    ? path.resolve(
-                        extraConfig.rootAppDirectoryPath,
-                        'node_modules/react-dom',
-                      )
-                    : path.resolve(
-                        extraConfig.rootAppDirectoryPath,
-                        'node_modules/@hot-loader/react-dom',
-                      ),
+                'react-dom': isProduction
+                  ? path.resolve(
+                      extraConfig.rootAppDirectoryPath,
+                      'node_modules/react-dom',
+                    )
+                  : path.resolve(
+                      extraConfig.rootAppDirectoryPath,
+                      'node_modules/@hot-loader/react-dom',
+                    ),
               }),
           react: path.resolve(
             extraConfig.rootAppDirectoryPath,

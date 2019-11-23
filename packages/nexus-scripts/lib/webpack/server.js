@@ -1,3 +1,5 @@
+const path = require('path');
+
 const express = require('express');
 const cors = require('cors');
 const chalk = require('chalk');
@@ -20,6 +22,10 @@ const runServer = extraConfiguration => {
     extraConfiguration,
   );
   const hmrSocketPath = `${webpackConfig.output.publicPath}__webpack_hmr`;
+  // const webpackHotMiddlewarePackagePath = path.resolve(
+  //   __dirname,
+  //   '../../node_modules/webpack-hot-middleware',
+  // );
   const hotClientScript = `webpack-hot-middleware/client?path=${hmrSocketPath}&timeout=20000&reload=true`;
 
   // add the webpack-dev-middleware client to connect to the socket
@@ -90,9 +96,7 @@ ${chalk.red(`Press ${chalk.italic('CTRL-C')} to stop`)}
 
     if (extraConfiguration.openBrowser) {
       open(
-        `http://localhost:${extraConfiguration.PORT}${
-          webpackConfig.output.publicPath
-        }`,
+        `http://localhost:${extraConfiguration.PORT}${webpackConfig.output.publicPath}`,
       );
     }
   });

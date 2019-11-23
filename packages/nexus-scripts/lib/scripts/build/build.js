@@ -7,7 +7,12 @@ const build = ({ argv, extraConfiguration }) => {
   process.env.NODE_ENV = 'production';
   process.env.BABEL_ENV = 'production';
 
-  const webpackProdConfig = webpackProd({}, extraConfiguration);
+  const webpackProdConfig = webpackProd(
+    {
+      entry: extraConfiguration.fileAppRootPath,
+    },
+    extraConfiguration,
+  );
 
   webpack(webpackProdConfig, (error, stats) => {
     if (error || stats.hasErrors()) {
