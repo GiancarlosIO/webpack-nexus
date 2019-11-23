@@ -52,11 +52,13 @@ const createBaseConfig = (config, extraConfig) => {
                 loader: 'postcss-loader',
                 options: {
                   ident: 'postcss',
-                  plugins: [
-                    require('tailwindcss'),
-                    require('autoprefixer'),
-                    ...(isProduction ? [purgecss] : []),
-                  ],
+                  plugins: extraConfig.withTailwindcss
+                    ? [
+                        require('tailwindcss'),
+                        require('autoprefixer'),
+                        ...(isProduction ? [purgecss] : []),
+                      ]
+                    : [],
                 },
               },
               // Compiles Sass to CSS
