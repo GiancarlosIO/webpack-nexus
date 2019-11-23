@@ -25,7 +25,7 @@ const argv = parseArgs(process.argv.slice(2), {
 });
 
 const projectName = argv._[0];
-const { withApollo } = argv;
+const { withApollo, withTailwindcss } = argv;
 
 if (!projectName) {
   console.log(
@@ -52,9 +52,13 @@ createFolder({
     // ======================== package.json ========================= //
     // console.dir(folderPath);
     const packageJsonPath = path.join(folderPath, 'package.json');
+    const extraParams = [
+      withTailwindcss ? '--withTailwindcss' : '',
+      withApollo ? '--withGraphql' : '',
+    ];
     const packageJsonContent = getPackageJsonTemplate({
       projectName,
-      extraNexusArgs: withApollo ? '--withGraphql' : '',
+      extraNexusArgs: extraParams.join(' '),
     });
     fs.writeFileSync(packageJsonPath, packageJsonContent);
 
