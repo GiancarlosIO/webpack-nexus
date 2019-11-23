@@ -9,7 +9,6 @@
     "build": "node ../packages/nexus-scripts/lib/nexus-scripts.js nexus-scripts build"
   },
   "dependencies": {
-    "nexus-scripts": "^0.3.0",
     "react": "16.8.6",
     "react-dom": "16.8.6"
   }
