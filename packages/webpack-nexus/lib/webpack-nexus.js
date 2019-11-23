@@ -108,7 +108,7 @@ createFolder({
     });
 
     // we need to install the dependencies of the eslint plugin
-    const eslintPackages = {
+    const devPackages = {
       '@typescript-eslint/eslint-plugin': '1.12.0',
       '@typescript-eslint/parser': '1.12.0',
       'confusing-browser-globals': '1.0.9',
@@ -123,10 +123,11 @@ createFolder({
       'typescript-styled-plugin': '0.14.0',
       prettier: '1.15.3',
       typescript: '3.5.3',
+      'node-sass': '4.13.0',
     };
-    const eslintPackagesString = stringifyNpmPackages(eslintPackages);
+    const devPackagesString = stringifyNpmPackages(devPackages);
     installNpmPackages({
-      packages: `eslint-config-webpack-nexus ${eslintPackagesString}`,
+      packages: `eslint-config-webpack-nexus ${devPackagesString}`,
       path: folderPath,
       areDevDependencies: true,
     });
