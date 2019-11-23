@@ -25,6 +25,7 @@ const argv = parseArgs(process.argv.slice(2), {
 });
 
 const projectName = argv._[0];
+const { withApollo } = argv;
 
 if (!projectName) {
   console.log(
@@ -53,6 +54,7 @@ createFolder({
     const packageJsonPath = path.join(folderPath, 'package.json');
     const packageJsonContent = getPackageJsonTemplate({
       projectName,
+      extraNexusArgs: withApollo ? '--withGraphql' : '',
     });
     fs.writeFileSync(packageJsonPath, packageJsonContent);
 
@@ -77,6 +79,7 @@ createFolder({
       '@hot-loader/react-dom': '16.10.2',
     };
     const apolloPackages = {
+      'react-apollo': '3.1.3',
       'apollo-client': '2.6.4',
       'apollo-link': '1.2.13',
       'apollo-cache-inmemory': '1.6.3',
@@ -87,7 +90,7 @@ createFolder({
     };
 
     const coreNpmPackages = stringifyNpmPackages(
-      argv.withApollo
+      withApollo
         ? {
             ...npmCorePackages,
             ...apolloPackages,
@@ -140,7 +143,7 @@ createFolder({
     const jsPath = path.join(srcFolderPath, `index.${jsExtension}`);
 
     let content = '';
-    if (argv.withApollo) {
+    if (withApollo) {
       content = fs.readFileSync(
         path.resolve(__dirname, './templateFiles/react/apollo.js'),
         'utf8',
