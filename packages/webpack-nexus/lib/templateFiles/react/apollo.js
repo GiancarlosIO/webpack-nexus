@@ -36,7 +36,8 @@ const errorLink = onError(({ graphQLErrors, networkError, operation }) => {
   }
 });
 
-const links = [httpLink, errorLink];
+// the order is very important!
+const links = [errorLink, httpLink];
 
 const client = new ApolloClient({
   cache,
