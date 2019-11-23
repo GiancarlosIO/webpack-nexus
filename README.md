@@ -41,9 +41,11 @@ yarn
 > yarn global add webpack-nexus
 
 ### Create an app
-Right now, this package has only one command to start your project. More is coming soon...
-
 > webpack-nexus the-name-of-your-project
+
+You can use the additional argvs to customize the tech stack.
+* withApollo: Setup apollo client (v3) and add graphql-tag loader to webpack
+* withTailwindcss: Setup tailwind css and add purgecss in production mode.
 
 It will create a folder with your project name, navigate to it.
 
