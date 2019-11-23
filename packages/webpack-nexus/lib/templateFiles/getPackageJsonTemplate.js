@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-function getPackageJsonTemplate({ projectName, author }) {
+function getPackageJsonTemplate({ projectName, author, extraNexusArgs }) {
   return `
 {
   "name": "${projectName}",
@@ -14,8 +14,8 @@ function getPackageJsonTemplate({ projectName, author }) {
   "author": "${author || ''}",
   "license": "MIT",
   "scripts": {
-    "start": "npx nexus-scripts start",
-    "build": "npx nexus-scripts build"
+    "start": "npx nexus-scripts start ${extraNexusArgs}",
+    "build": "npx nexus-scripts build ${extraNexusArgs}"
   }
 }
 
