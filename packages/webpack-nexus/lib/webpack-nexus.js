@@ -146,6 +146,8 @@ createFolder({
     const jsExtension = 'js';
     const jsPath = path.join(srcFolderPath, `index.${jsExtension}`);
 
+    const extraImports = [withTailwindcss ? "import './tailwind.css';\n" : ''];
+
     let content = '';
     if (withApollo) {
       content = fs.readFileSync(
@@ -158,12 +160,26 @@ createFolder({
         'utf8',
       );
     }
-    fs.writeFileSync(jsPath, `${content.trim()}\n`);
+    fs.writeFileSync(
+      jsPath,
+      `${content.trim().replace('[extraImports];', extraImports.join(''))}\n`,
+    );
     console.log(
       chalk.green(
         `> Success to create the index.${jsExtension} and index.html files`,
       ),
     );
+
+    // ======================== tailwind.css ================= //
+    if (withTailwindcss) {
+      const cssPath = path.join(srcFolderPath, `tailwind.css`);
+      const cssTemplate = fs.readFileSync(
+        path.resolve(__dirname, './templateFiles/tailwind.css'),
+        'utf8',
+      );
+      fs.writeFileSync(cssPath, `${cssTemplate.trim()}\n`);
+      console.log(chalk.green(`> Success to configurate tailwind.`));
+    }
 
     /**
      * 5. Copy rest of configuration files:
