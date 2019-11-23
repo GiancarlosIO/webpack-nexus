@@ -45,7 +45,7 @@ if (!fs.existsSync(htmlWebpackPluginTemplate)) {
 const PORT = argv.port || process.env.PORT || 3000;
 
 const isAnalyzerEnabled = argv.analyzer;
-const { clearConsole, openBrowser, reactProfiler } = argv;
+const { clearConsole, openBrowser, reactProfiler, withGraphql } = argv;
 
 const extraConfiguration = {
   rootAppDirectoryPath,
@@ -58,6 +58,7 @@ const extraConfiguration = {
   reactProfiler,
   clearConsole: clearConsole !== 'false',
   openBrowser: openBrowser !== 'false',
+  withGraphql,
 };
 
 const commands = {

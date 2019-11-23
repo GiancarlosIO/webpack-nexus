@@ -95,6 +95,14 @@ const createBaseConfig = (config, extraConfig) => {
     config,
   );
 
+  if (extraConfig.withGraphql) {
+    base.module.rules.push({
+      test: /\.(graphql|gql)$/,
+      exclude: /node_modules/,
+      loader: 'graphql-tag/loader',
+    });
+  }
+
   if (extraConfig.isAnalyzerEnabled) {
     const analyzer = new BundleAnalyzerPlugin();
 
