@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-webpack-nexus",
-  "version": "0.5.2",
+  "version": "1.0.0",
   "description": "Babel preset used by webpack-nexus cli",
   "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
   "homepage": "https://github.com/GiancarlosIO/webpack-nexus#readme",
