@@ -1,11 +1,11 @@
 /* eslint-disable newline-after-var */
 const fs = require('fs');
 const path = require('path');
-const { exec, execSync } = require('child_process');
+// const { exec, execSync } = require('child_process');
 
-const inquirer = require('inquirer');
+// const inquirer = require('inquirer');
 const chalk = require('chalk');
-const ora = require('ora');
+// const ora = require('ora');
 const parseArgs = require('minimist');
 
 const createFolder = require('./utils/createFolder');
@@ -15,7 +15,6 @@ const stringifyNpmPackages = require('./utils/stringifyNpmPackages');
 const getPackageJsonTemplate = require('./templateFiles/getPackageJsonTemplate');
 const getGitIgnoreContent = require('./templateFiles/getGitIgnoreTemplate');
 const getHtmlTemplate = require('./templateFiles/getHtmlTemplate');
-const getMainJsTempalte = require('./templateFiles/getMainJsTemplate');
 const getEslintTemplate = require('./templateFiles/getEslintTemplate');
 const getTsConfigTemplate = require('./templateFiles/getTsConfigTemplate');
 const getVsCodeConfig = require('./templateFiles/getVsCodeConfig');
@@ -77,7 +76,24 @@ createFolder({
       '@types/styled-components': '4.1.19',
       '@hot-loader/react-dom': '16.10.2',
     };
-    const coreNpmPackages = stringifyNpmPackages(npmCorePackages);
+    const apolloPackages = {
+      'apollo-client': '2.6.4',
+      'apollo-link': '1.2.13',
+      'apollo-cache-inmemory': '1.6.3',
+      'apollo-link-http': '1.5.16',
+      'graphql-tag': '2.10.1',
+      graphql: '14.5.8',
+      'apollo-link-error': '1.1.12',
+    };
+
+    const coreNpmPackages = stringifyNpmPackages(
+      argv.withApollo
+        ? {
+            ...npmCorePackages,
+            ...apolloPackages,
+          }
+        : npmCorePackages,
+    );
     installNpmPackages({
       packages: coreNpmPackages,
       path: folderPath,
@@ -113,16 +129,27 @@ createFolder({
     const srcFolderPath = path.join(folderPath, 'src');
     fs.mkdirSync(srcFolderPath);
 
+    // TODO: Replace all getTemplateThing with readFileSync to use real js files like templates
     const html = getHtmlTemplate({ projectName });
     const htmlPath = path.join(srcFolderPath, 'index.html');
     fs.writeFileSync(htmlPath, html);
 
-    // ======================== index.(js|tsx) ========================= //
+    // ======================== react index.(js|tsx) ========================= //
     // TODO: Permit to change this from cli args
     const jsExtension = 'js';
-    const js = getMainJsTempalte();
     const jsPath = path.join(srcFolderPath, `index.${jsExtension}`);
-    fs.writeFileSync(jsPath, js);
+
+    let content = '';
+    if (argv.withApollo) {
+      content = fs.readFileSync(
+        path.resolve(__dirname, './templateFiles/react/apollo.js', 'utf8'),
+      );
+    } else {
+      content = fs.readFileSync(
+        path.resolve(__dirname, './templateFiles/react/default.js', 'utf8'),
+      );
+    }
+    fs.writeFileSync(jsPath, `${content.trim()}\n`);
     console.log(
       chalk.green(
         `> Success to create the index.${jsExtension} and index.html files`,
