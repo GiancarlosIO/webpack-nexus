@@ -12,11 +12,11 @@ Webpack nexus is a _simple_ CLI to scaffold your javascript/react projects.
 ## Features
 * Webpack: Dev and Prod configurations inspired by the awesome work of [React boilerplate](https://github.com/react-boilerplate/react-boilerplate) 🔨
 * Babel: ES6/ES7, Jsx and plugins configured for dev and production mode. ⚛️
-* Styling with styled-components 💅
+* Styling with styled-components and tailwind (it use purgecss under the hook to remove unused css rules) 💅
 * Typing with typescript and eslint ✔️
 * Auto formatter with prettier 🔄
 * vscode configured to work with eslint + typescript + prettier 💙
-* _React-apollo: coming soon..._
+* React-apollo: with withApollo flag in the command line
 * _Jest: coming soon.._
 * _Husky + lint-stagged: coming soon..._
 * _webpack-nexus.js: file to configure/overrite the actual webpack/babel configuration, coming soon..._
@@ -46,6 +46,9 @@ yarn
 You can use the additional argvs to customize the tech stack.
 * withApollo: Setup apollo client (v3) and add graphql-tag loader to webpack
 * withTailwindcss: Setup tailwind css and add purgecss in production mode.
+
+> webpack-nexus the-name-of-your-project --withApollo
+> webpack-nexus the-name-of-your-project --withTailwindcss
 
 It will create a folder with your project name, navigate to it.
 
