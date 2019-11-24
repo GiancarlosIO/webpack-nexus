@@ -5,6 +5,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const postcssPurgecss = require('@fullhuman/postcss-purgecss');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MediaQueryPlugin = require('media-query-plugin');
 
 const createBaseConfig = (config, extraConfig) => {
   const isProduction = process.env.NODE_ENV === 'production';
@@ -45,9 +47,11 @@ const createBaseConfig = (config, extraConfig) => {
             test: /\.(css|s[ac]ss)$/i,
             use: [
               // Creates `style` nodes from JS strings
-              'style-loader',
+              isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
               // Translates CSS into CommonJS
               'css-loader',
+              // https://github.com/SassNinja/media-query-plugin
+              ...(isProduction ? [MediaQueryPlugin.loader] : []),
               {
                 loader: 'postcss-loader',
                 options: {
