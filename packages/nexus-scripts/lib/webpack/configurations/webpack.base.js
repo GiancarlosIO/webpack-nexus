@@ -6,14 +6,15 @@ const merge = require('webpack-merge');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const postcssPurgecss = require('@fullhuman/postcss-purgecss');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const MediaQueryPlugin = require('media-query-plugin');
 
 const createBaseConfig = (config, extraConfig) => {
   const isProduction = process.env.NODE_ENV === 'production';
   const purgecss = postcssPurgecss({
     content: [
-      path.resolve(extraConfig.rootAppDirectoryPath, 'dist/**/*.js'),
-      path.resolve(extraConfig.rootAppDirectoryPath, 'dist/**/*.html'),
+      path.join(extraConfig.rootAppDirectoryPath, 'src/**/*.js'),
+      path.join(extraConfig.rootAppDirectoryPath, 'src/**/*.tsx'),
+      path.join(extraConfig.rootAppDirectoryPath, 'src/**/*.ts'),
+      path.join(extraConfig.rootAppDirectoryPath, 'src/**/*.html'),
     ],
     // Include any special characters you're using in this regular expression
     defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
@@ -50,8 +51,6 @@ const createBaseConfig = (config, extraConfig) => {
               isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
               // Translates CSS into CommonJS
               'css-loader',
-              // https://github.com/SassNinja/media-query-plugin
-              ...(isProduction ? [MediaQueryPlugin.loader] : []),
               {
                 loader: 'postcss-loader',
                 options: {
