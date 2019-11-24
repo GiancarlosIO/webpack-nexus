@@ -2,6 +2,9 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MediaQueryPlugin = require('media-query-plugin');
 
 const webpackBase = require('./webpack.base');
 
@@ -38,6 +41,11 @@ const createProdConfig = (config = {}, extraConfig) =>
               cache: true,
               // TODO, generate the source map files after the compilation ends
               sourceMap: false,
+            }),
+            new OptimizeCSSAssetsPlugin({
+              cssProcessorPluginOptions: {
+                preset: ['default', { discardComments: { removeAll: true } }],
+              },
             }),
           ],
           nodeEnv: 'production',
@@ -90,6 +98,19 @@ const createProdConfig = (config = {}, extraConfig) =>
             hashFunction: 'sha256',
             hashDigest: 'hex',
             hashDigestLength: 20,
+          }),
+          new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css',
+          }),
+          // https://github.com/SassNinja/media-query-plugin#3-use-extracted-files
+          new MediaQueryPlugin({
+            include: true,
+            queries: {
+              'print, screen and (min-width: 640px)': 'sm',
+              'print, screen and (min-width: 768px)': 'md',
+              'print, screen and (min-width: 1024px)': 'lg',
+              'print, screen and (min-width: 1280px)': 'xl',
+            },
           }),
           // ignore the .map and favicon files?????
           // performance: {
