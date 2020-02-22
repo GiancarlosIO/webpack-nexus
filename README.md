@@ -48,6 +48,7 @@ You can use the additional argvs to customize the tech stack.
 * withTailwindcss: Setup tailwind css and add purgecss in production mode.
 
 > webpack-nexus the-name-of-your-project --withApollo
+
 > webpack-nexus the-name-of-your-project --withTailwindcss
 
 It will create a folder with your project name, navigate to it.
