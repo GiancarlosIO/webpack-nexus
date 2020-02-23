@@ -16,22 +16,26 @@ function getVsCodeConfig() {
   "editor.formatOnSave":  false,
 },
 
+"editor.codeActionsOnSave": {
+  "source.fixAll.tslint": true,
+  "source.fixAll.eslint": true
+},
+
   // An array of language ids which should be validated by ESLint
 "eslint.validate": [
   "javascript",
   "javascriptreact",
   "Babel Javascript",
-  {
-      "language": "typescript",
-      "autoFix": true
-  },
-  {
-      "language": "typescriptreact",
-      "autoFix": true
-  }
+  "typescript",
+  "typescriptreact"
 ],
-"eslint.autoFixOnSave": true,
 "eslint.alwaysShowStatus": true,
+
+"eslint.validate": [
+  "javascript",
+  "javascriptreact",
+  "Babel Javascript"
+],
 
 // typescript auto-format settings
 "typescript.tsdk": "node_modules/typescript/lib",
