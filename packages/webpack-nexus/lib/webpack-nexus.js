@@ -109,20 +109,19 @@ createFolder({
 
     // we need to install the dependencies of the eslint plugin
     const devPackages = {
-      '@typescript-eslint/eslint-plugin': '1.12.0',
-      '@typescript-eslint/parser': '1.12.0',
-      'confusing-browser-globals': '1.0.9',
-      eslint: '5.3.0',
-      'eslint-config-airbnb': '17.1.1',
-      'eslint-config-prettier': '6.0.0',
-      'eslint-plugin-import': '2.18.0',
-      'eslint-plugin-jsx-a11y': '6.2.3',
-      'eslint-plugin-prettier': '3.0.0',
-      'eslint-plugin-react': '7.14.2',
-      'eslint-plugin-react-hooks': '1.6.1',
-      'typescript-styled-plugin': '0.14.0',
-      prettier: '1.15.3',
-      typescript: '3.5.3',
+      '@typescript-eslint/eslint-plugin': '^2.20.0',
+      '@typescript-eslint/parser': '^2.20.0',
+      'confusing-browser-globals': '^1.0.9',
+      eslint: '^6.7.1',
+      'eslint-config-airbnb': '^18.0.1',
+      'eslint-config-prettier': '^6.10.0',
+      'eslint-plugin-import': '^2.18.2',
+      'eslint-plugin-jsx-a11y': '^6.2.3',
+      'eslint-plugin-prettier': '^3.1.1',
+      'eslint-plugin-react': '^7.15.1',
+      'eslint-plugin-react-hooks': '^1.7.0',
+      prettier: '^1.19.1',
+      typescript: '^3.7.2',
       'node-sass': '4.13.0',
     };
     const devPackagesString = stringifyNpmPackages(devPackages);
