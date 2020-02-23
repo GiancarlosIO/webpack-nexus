@@ -30,13 +30,6 @@ function getVsCodeConfig() {
   "typescriptreact"
 ],
 "eslint.alwaysShowStatus": true,
-
-"eslint.validate": [
-  "javascript",
-  "javascriptreact",
-  "Babel Javascript"
-],
-
 // typescript auto-format settings
 "typescript.tsdk": "node_modules/typescript/lib",
 "javascript.preferences.importModuleSpecifier": "auto",
