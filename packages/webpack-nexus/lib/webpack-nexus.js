@@ -84,13 +84,14 @@ createFolder({
     };
     const apolloPackages = {
       'react-apollo': '3.1.3',
-      'apollo-client': '2.6.4',
-      'apollo-link': '1.2.13',
-      'apollo-cache-inmemory': '1.6.3',
-      'apollo-link-http': '1.5.16',
-      'graphql-tag': '2.10.1',
+      '@apollo/react-hooks': '3.1.5',
+      'apollo-client': '2.6.10',
+      'apollo-link': '1.2.14',
+      'apollo-cache-inmemory': '1.6.6',
+      'apollo-link-http': '1.5.17',
+      'graphql-tag': '2.10.3',
       graphql: '14.5.8',
-      'apollo-link-error': '1.1.12',
+      'apollo-link-error': '1.1.13',
     };
 
     const coreNpmPackages = stringifyNpmPackages(
@@ -109,8 +110,8 @@ createFolder({
 
     // we need to install the dependencies of the eslint plugin
     const devPackages = {
-      '@typescript-eslint/eslint-plugin': '^2.20.0',
-      '@typescript-eslint/parser': '^2.20.0',
+      '@typescript-eslint/eslint-plugin': '^3.5.0',
+      '@typescript-eslint/parser': '^3.5.0',
       'confusing-browser-globals': '^1.0.9',
       eslint: '^6.7.1',
       'eslint-config-airbnb': '^18.0.1',
@@ -119,7 +120,7 @@ createFolder({
       'eslint-plugin-jsx-a11y': '^6.2.3',
       'eslint-plugin-prettier': '^3.1.1',
       'eslint-plugin-react': '^7.15.1',
-      'eslint-plugin-react-hooks': '^1.7.0',
+      'eslint-plugin-react-hooks': '^4.0.5',
       prettier: '^1.19.1',
       typescript: '^3.7.2',
       'node-sass': '4.13.0',
