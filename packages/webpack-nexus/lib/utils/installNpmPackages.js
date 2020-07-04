@@ -1,4 +1,4 @@
-const { exec, execSync } = require('child_process');
+const { exec } = require('child_process');
 
 const ora = require('ora');
 const chalk = require('chalk');
@@ -14,26 +14,40 @@ const chalk = require('chalk');
  * @returns {Promise}
  */
 function installNpmPackages({ packages, path, areDevDependencies }) {
-  const installingPackages = ora('Npm: Installing packages...').start();
-  /**
-   * pass Pipe to silent the child process output
-   * actually pipe is the default value but for some reason setting it changes its behavior
-   * */
-  installingPackages('Npm: Installing packages...');
-  try {
-    exec(
-      `npm install ${packages} ${areDevDependencies ? '--save-dev' : ''}`,
-      {
-        encoding: 'utf8',
-        stdio: 'pipe',
-        cwd: path,
-      },
-    );
-    installingPackages.succeed('Successfull to install npm packages.');
-  } catch (npmError) {
-    console.log(chalk.red('Error to install packages with npm'), npmError);
-    process.exit(1);
-  }
+  return new Promise((resolve, reject) => {
+    const installingPackages = ora('npm: Installing packages...').start();
+    /**
+     * pass Pipe to silent the child process output
+     * actually pipe is the default value but for some reason setting it changes its behavior
+     * */
+
+    try {
+      exec(
+        `npm install ${packages} ${areDevDependencies ? '--save-dev' : ''}`,
+        {
+          encoding: 'utf8',
+          stdio: 'pipe',
+          cwd: path,
+        },
+        (error, stdout, stderr) => {
+          if (error) {
+            ora.fail();
+            console.error(chalk.red(`\nexec error ${error}`));
+            reject(error);
+            return;
+          }
+
+          // this are just logs stuff
+          console.info(`\n${stderr}`);
+          installingPackages.succeed('Successfull to install npm packages.');
+          resolve();
+        },
+      );
+    } catch (npmError) {
+      console.log(chalk.red('Error to install packages with npm'), npmError);
+      resolve(npmError);
+    }
+  });
 }
 
 module.exports = installNpmPackages;

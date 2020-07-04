@@ -27,30 +27,31 @@ const argv = parseArgs(process.argv.slice(2), {
 const projectName = argv._[0];
 const { withApollo, withTailwindcss } = argv;
 
-if (!projectName) {
-  console.log(
-    chalk.red(
-      'We need the name of the project :(.\nEx: webpack-nexus my-new-project',
-    ),
-  );
-  process.exit(1);
-}
+async function main() {
+  if (!projectName) {
+    console.log(
+      chalk.red(
+        'We need the name of the project :(.\nEx: webpack-nexus my-new-project',
+      ),
+    );
+    process.exit(1);
+  }
 
-const folderPath = path.join(process.cwd(), projectName);
+  try {
+    const folderPath = path.join(process.cwd(), projectName);
 
-// 2. Create the folder with the name of the project
-createFolder({
-  pathToCreate: folderPath,
-  folderName: projectName,
-  callback: () => {
+    // 2. Create the folder with the name of the project
+    await createFolder({
+      pathToCreate: folderPath,
+      folderName: projectName,
+    });
+
     /**
      * 3. Copy the main folders and files
      * - package.json: react, react-dom, nexus-scripts, styled-components
      * - .gitignore
      */
-
     // ======================== package.json ========================= //
-    // console.dir(folderPath);
     const packageJsonPath = path.join(folderPath, 'package.json');
     const extraParams = [
       withTailwindcss ? '--withTailwindcss' : '',
@@ -102,7 +103,7 @@ createFolder({
           }
         : npmCorePackages,
     );
-    installNpmPackages({
+    await installNpmPackages({
       packages: coreNpmPackages,
       path: folderPath,
       areDevDependencies: false,
@@ -123,10 +124,10 @@ createFolder({
       'eslint-plugin-react-hooks': '^4.0.5',
       prettier: '^1.19.1',
       typescript: '^3.7.2',
-      'node-sass': '4.13.0',
+      'node-sass': '4.14.1',
     };
     const devPackagesString = stringifyNpmPackages(devPackages);
-    installNpmPackages({
+    await installNpmPackages({
       packages: `eslint-config-webpack-nexus ${devPackagesString}`,
       path: folderPath,
       areDevDependencies: true,
@@ -194,14 +195,14 @@ createFolder({
 
     // ======================== .eslintignore ========================= //
     const eslintignore = `
-!.*.js
-!.*.ts
-!.*.tsx
-node_modules/
-coverage/
-dist/
-build/
-`;
+  !.*.js
+  !.*.ts
+  !.*.tsx
+  node_modules/
+  coverage/
+  dist/
+  build/
+  `;
     const eslintignorePath = path.join(folderPath, '.eslintignore');
     fs.writeFileSync(eslintignorePath, eslintignore);
     console.log(chalk.green(`> Success to create the eslint config files`));
@@ -218,5 +219,9 @@ build/
     const vsConfig = getVsCodeConfig();
     const vsConfigPath = path.join(vscodeConfigFolderPath, 'settings.json');
     fs.writeFileSync(vsConfigPath, vsConfig);
-  },
-});
+  } catch (error) {
+    process.exit(1);
+  }
+}
+
+main();
