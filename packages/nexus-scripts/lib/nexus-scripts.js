@@ -56,7 +56,11 @@ const {
 const extraConfiguration = {
   rootAppDirectoryPath,
   srcAppDirectoryPath,
-  fileAppRootPath,
+  fileAppRootPath: [
+    'core-js/stable',
+    'regenerator-runtime/runtime',
+    fileAppRootPath,
+  ],
   PORT,
   htmlWebpackPluginTemplate,
   // extra helper vars
