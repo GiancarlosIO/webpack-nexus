@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 
 const ora = require('ora');
 const chalk = require('chalk');
@@ -22,28 +22,29 @@ function installNpmPackages({ packages, path, areDevDependencies }) {
      * */
 
     try {
-      exec(
+      execSync(
         `npm install ${packages} ${areDevDependencies ? '--save-dev' : ''}`,
         {
           encoding: 'utf8',
           stdio: 'pipe',
           cwd: path,
         },
-        (error, stdout, stderr) => {
-          if (error) {
-            ora.fail();
-            console.error(chalk.red(`\nexec error ${error}`));
-            reject(error);
-            return;
-          }
+        // (error, stdout, stderr) => {
+        //   if (error) {
+        //     ora.fail();
+        //     console.error(chalk.red(`\nexec error ${error}`));
+        //     reject(error);
+        //     return;
+        //   }
 
-          // this are just logs stuff
-          console.info(`\n${stderr}`);
-          installingPackages.succeed('Successfull to install npm packages.');
-          resolve();
-        },
+        //   // this are just logs stuff
+        //   console.info(`\n${stderr}\n`);
+        // },
       );
+      installingPackages.succeed('Successfull to install npm packages.');
+      resolve(true);
     } catch (npmError) {
+      ora.fail();
       console.log(chalk.red('Error to install packages with npm'), npmError);
       resolve(npmError);
     }

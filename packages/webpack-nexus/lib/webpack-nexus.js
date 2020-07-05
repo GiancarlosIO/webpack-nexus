@@ -123,10 +123,11 @@ async function main() {
       'eslint-plugin-react': '^7.15.1',
       'eslint-plugin-react-hooks': '^4.0.5',
       prettier: '^1.19.1',
-      typescript: '^3.7.2',
+      typescript: '^3.9.5',
       'node-sass': '4.14.1',
     };
     const devPackagesString = stringifyNpmPackages(devPackages);
+
     await installNpmPackages({
       packages: `eslint-config-webpack-nexus ${devPackagesString}`,
       path: folderPath,
@@ -220,8 +221,13 @@ async function main() {
     const vsConfigPath = path.join(vscodeConfigFolderPath, 'settings.json');
     fs.writeFileSync(vsConfigPath, vsConfig);
   } catch (error) {
+    console.error(error);
     process.exit(1);
   }
 }
 
-main();
+main()
+  .then(() => {
+    console.log("> Alright, it's done. Enjoy your app 😄");
+  })
+  .catch(console.error);
