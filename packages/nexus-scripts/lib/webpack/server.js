@@ -1,5 +1,3 @@
-const path = require('path');
-
 const express = require('express');
 const cors = require('cors');
 const chalk = require('chalk');
@@ -15,12 +13,7 @@ const webpackDevConfig = require('./configurations/webpack.dev');
 const clearConsole = require('../utils/clearConsole');
 
 const runServer = extraConfiguration => {
-  const webpackConfig = webpackDevConfig(
-    {
-      entry: extraConfiguration.fileAppRootPath,
-    },
-    extraConfiguration,
-  );
+  const webpackConfig = webpackDevConfig({}, extraConfiguration);
   const hmrSocketPath = `${webpackConfig.output.publicPath}__webpack_hmr`;
   // const webpackHotMiddlewarePackagePath = path.resolve(
   //   __dirname,
@@ -29,7 +22,7 @@ const runServer = extraConfiguration => {
   const hotClientScript = `webpack-hot-middleware/client?path=${hmrSocketPath}&timeout=20000&reload=true`;
 
   // add the webpack-dev-middleware client to connect to the socket
-  webpackConfig.entry = [webpackConfig.entry, hotClientScript];
+  webpackConfig.entry = [...webpackConfig.entry, hotClientScript];
   // const HMR_PATH = `${webpackConfig.devServer.publicPath}__webpack_hmr`;
   // const hotMiddlewareScript = `webpack-hot-middleware/client`;
 

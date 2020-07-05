@@ -35,7 +35,7 @@ const createBaseConfig = (config, extraConfig) => {
           'process.env.BABEL_ENV': JSON.stringify(process.env.BABEL_ENV),
         }),
       ],
-      // the `entry` option is in the config object
+      entry: extraConfig.fileAppRootPath,
       module: {
         rules: [
           // some apollo packages needs it
