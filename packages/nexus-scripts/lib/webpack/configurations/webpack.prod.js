@@ -60,18 +60,19 @@ const createProdConfig = (config = {}, extraConfig) =>
             chunks: 'all',
             // investigate why 0 is better that 300000
             minSize: 0,
-            cacheGroups: {
-              vendor: {
-                test: /[\\/]node_modules[\\/]/,
-                name(module) {
-                  const packageName = module.context.match(
-                    /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
-                  )[1];
+            // remove this configurations to reduce number of file request
+            // cacheGroups: {
+            //   vendor: {
+            //     test: /[\\/]node_modules[\\/]/,
+            //     name(module) {
+            //       const packageName = module.context.match(
+            //         /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
+            //       )[1];
 
-                  return `npm.${packageName.replace('@', '')}`;
-                },
-              },
-            },
+            //       return `npm.${packageName.replace('@', '')}`;
+            //     },
+            //   },
+            // },
           },
         },
         plugins: [
