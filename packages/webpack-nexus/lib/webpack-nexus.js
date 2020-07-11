@@ -125,6 +125,7 @@ async function main() {
       prettier: '^1.19.1',
       typescript: '^3.9.5',
       'node-sass': '4.14.1',
+      'typescript-styled-plugin': '^0.15.0',
     };
     const devPackagesString = stringifyNpmPackages(devPackages);
 
