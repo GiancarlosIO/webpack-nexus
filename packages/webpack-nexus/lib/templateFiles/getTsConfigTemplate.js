@@ -2,9 +2,10 @@ function getTsConfigTemplate() {
   return `{
   "compilerOptions": {
     "moduleResolution": "node",
+    "module": "esnext",
     "allowJs": true,
     "noEmit": true,
-    "strict": true,
+    "strict": false,
     "isolatedModules": true,
     "esModuleInterop": true,
     "strictNullChecks": true,
@@ -12,18 +13,17 @@ function getTsConfigTemplate() {
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": false,
+    "skipLibCheck": true,
+    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
     "jsx": "react",
-    "baseUrl": "./",
-    "paths": {
-      "*": [
-        "*"
-      ]
-    },
     "plugins": [
       {
         "name": "typescript-styled-plugin"
@@ -31,11 +31,7 @@ function getTsConfigTemplate() {
     ]
   },
   "include": [
-    "src/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
+    "src"
   ]
 }
 `;
