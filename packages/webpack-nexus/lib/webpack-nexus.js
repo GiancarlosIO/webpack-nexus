@@ -74,17 +74,17 @@ async function main() {
 
     // install the packages inside the folder
     const npmCorePackages = {
-      react: '16.10.2',
-      'react-dom': '16.10.2',
-      'styled-components': '4.4.0',
+      react: '16.13.1',
+      'react-dom': '16.13.1',
+      'styled-components': '5.1.1',
       'nexus-scripts': '', // always install the last version
-      '@types/react': '16.9.5',
-      '@types/react-dom': '16.9.1',
-      '@types/styled-components': '4.1.19',
-      '@hot-loader/react-dom': '16.10.2',
+      '@types/react': '16.9.42',
+      '@types/react-dom': '16.9.8',
+      '@types/styled-components': '5.1.1',
+      '@hot-loader/react-dom': '16.13.0',
     };
     const apolloPackages = {
-      'react-apollo': '3.1.3',
+      'react-apollo': '3.1.5',
       '@apollo/react-hooks': '3.1.5',
       'apollo-client': '2.6.10',
       'apollo-link': '1.2.14',
