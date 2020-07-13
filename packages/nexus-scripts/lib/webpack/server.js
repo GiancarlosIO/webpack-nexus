@@ -6,6 +6,7 @@ const open = require('open');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const historyApiFallback = require('connect-history-api-fallback');
 
 const webpackDevConfig = require('./configurations/webpack.dev');
 
@@ -67,6 +68,12 @@ const runServer = extraConfiguration => {
   });
 
   const app = express();
+
+  app.use(
+    historyApiFallback({
+      verbose: false,
+    }),
+  );
 
   app.use(cors());
   app.use(devMiddleware);
