@@ -94,6 +94,7 @@ module.exports = {
     ],
     'no-restricted-globals': ['error'].concat(restrictedGlobals),
     // react rules
+    'react/jsx-fragments': 0,
     'react/prop-types': [
       1,
       {
