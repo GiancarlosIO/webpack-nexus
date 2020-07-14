@@ -44,7 +44,7 @@ const createDevConfig = (config, extraConfig) =>
           new webpack.NoEmitOnErrorsPlugin(),
           new WebpackBuildNotifierPlugin(),
         ],
-        devtool: 'eval-source-map',
+        devtool: 'source-map',
         performance: {
           hints: false, // why we need it? 🤔
         },
