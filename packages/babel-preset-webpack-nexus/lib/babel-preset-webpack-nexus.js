@@ -112,6 +112,7 @@ module.exports = () => {
         },
       ],
       require('@babel/plugin-syntax-dynamic-import'),
+      require('@babel/plugin-proposal-optional-chaining'),
       /**
        * Hey!
        * transform-runtime plugin only works for build libraries!
