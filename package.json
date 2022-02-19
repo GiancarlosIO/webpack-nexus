@@ -6,6 +6,9 @@
   "repository": "git@github.com:GiancarlosIO/webpack-nexus.git",
   "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": "./src/index.js",
   "scripts": {
     "release-all": "lerna publish"
