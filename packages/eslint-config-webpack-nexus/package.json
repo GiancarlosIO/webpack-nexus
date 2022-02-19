@@ -6,6 +6,9 @@
   "homepage": "https://github.com/GiancarlosIO/webpack-nexus#readme",
   "license": "MIT",
   "main": "lib/eslint-config-webpack-nexus.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
