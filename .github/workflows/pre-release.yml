@@ -37,6 +37,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          cat ~/.npmrc
           pnpm whoami
           pnpm prerelease
           pnpm prerelease-publish
