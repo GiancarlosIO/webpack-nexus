@@ -4,7 +4,7 @@ name: Pre-release
 on:
   push:
     branches:
-      - "master"
+      - master
 
 jobs:
   build:
