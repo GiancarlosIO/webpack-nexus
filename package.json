@@ -15,7 +15,9 @@
     "pnpm": ">=6"
   },
   "scripts": {
-    "release-all": "lerna publish"
+    "release-all": "lerna publish",
+    "prerelease": "changeset version --snapshot alpha",
+    "prerelease-publish": "changeset publish --tag alpha --no-git-tag"
   },
   "dependencies": {
     "@changesets/cli": "2.21.0",
