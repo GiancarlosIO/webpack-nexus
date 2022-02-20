@@ -1,0 +1,39 @@
+
+name: Pre-release
+
+on:
+  push:
+    branches:
+      - "prerelease/**"
+      - "!master"
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  build:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: $NPM_TOKEN
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - name: Setup environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Create npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          ls
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 6.0.2
+          run_install: true
+      - name: publish
+        run: |
+          pnpm changeset version --snapshot alpha
+          pnpm changeset publish --tag alpha --no-git-tag
