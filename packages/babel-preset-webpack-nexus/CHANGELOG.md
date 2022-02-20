@@ -1,5 +1,11 @@
 # babel-preset-webpack-nexus
 
+## 3.0.0
+
+### Major Changes
+
+- f2d4b0b: Improve CI
+
 ## 2.0.0
 
 ### Major Changes

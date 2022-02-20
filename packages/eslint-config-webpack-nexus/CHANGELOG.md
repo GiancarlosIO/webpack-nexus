@@ -1,5 +1,11 @@
 # eslint-config-webpack-nexus
 
+## 4.0.0
+
+### Major Changes
+
+- f2d4b0b: Improve CI
+
 ## 3.0.0
 
 ### Major Changes

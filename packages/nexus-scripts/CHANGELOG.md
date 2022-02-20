@@ -1,5 +1,16 @@
 # nexus-scripts
 
+## 3.0.0
+
+### Major Changes
+
+- f2d4b0b: Improve CI
+
+### Patch Changes
+
+- Updated dependencies [f2d4b0b]
+  - babel-preset-webpack-nexus@3.0.0
+
 ## 2.0.0
 
 ### Major Changes
