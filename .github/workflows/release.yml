@@ -42,5 +42,5 @@ jobs:
           pnpm release
           pnpm release-publish
           git add .
-          git commit -m "chore: release"
+          git commit -m "chore: [skip ci] release"
           git push --follow-tags
