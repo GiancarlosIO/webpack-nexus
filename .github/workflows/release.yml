@@ -6,6 +6,11 @@ on:
     branches:
       - master
 
+# Automatically cancel in-progress actions on the same branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'push' && github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build and publish
@@ -14,8 +19,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 2
+          fetch-depth: 0
           token: ${{ secrets.GIO_GITHUB_TOKEN  }}
+      - name: Configure git username
+        run: |
+          git config --global user.name 'Giancarlos Isasi'
+          git config --global user.email 'giancarlos.isasi@gmail.com'
       - name: Setup environment
         uses: actions/setup-node@v2
         with:
