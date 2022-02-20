@@ -26,6 +26,16 @@
   "bugs": {
     "url": "https://github.com/GiancarlosIO/webpack-nexus/issues"
   },
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "styled-components": ">=2"
+  },
+  "devDependencies": {
+    "react": "16",
+    "react-dom": "16",
+    "styled-components": "2"
+  },
   "dependencies": {
     "@babel/core": "7.10.4",
     "@babel/plugin-proposal-class-properties": "7.10.4",
