@@ -36,5 +36,5 @@ jobs:
           run_install: true
       - name: publish
         run: |
-          pnpm changeset version --snapshot alpha
-          pnpm changeset publish --tag alpha --no-git-tag
+          pnpm exec changeset version --snapshot alpha
+          pnpm exec changeset publish --tag alpha --no-git-tag
