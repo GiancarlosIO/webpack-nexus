@@ -1,6 +1,6 @@
 {
   "name": "webpack-nexus",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A cli to create your next super duper javascript project",
   "keywords": [
     "webpack",
@@ -22,6 +22,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GiancarlosIO/webpack-nexus.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"

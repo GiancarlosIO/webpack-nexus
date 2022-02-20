@@ -1,6 +1,6 @@
 {
   "name": "nexus-scripts",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "A script to up a webpack server for web development",
   "keywords": [
     "webpack",
@@ -22,6 +22,9 @@
     "type": "git",
     "url": "git+https://github.com/GiancarlosIO/webpack-nexus.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
@@ -40,7 +43,7 @@
     "@fullhuman/postcss-purgecss": "^1.3.0",
     "autoprefixer": "^9.7.2",
     "babel-loader": "8.0.5",
-    "babel-preset-webpack-nexus": "^1.4.0",
+    "babel-preset-webpack-nexus": "workspace:*",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "chalk": "2.4.2",
     "circular-dependency-plugin": "5.0.2",

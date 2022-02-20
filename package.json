@@ -6,38 +6,48 @@
   "repository": "git@github.com:GiancarlosIO/webpack-nexus.git",
   "author": "Giancarlos Isasi <giancarlos.isasi@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": "./src/index.js",
+  "engines": {
+    "node": "14.x",
+    "pnpm": ">=6"
+  },
   "scripts": {
-    "release-all": "lerna publish"
+    "release-all": "lerna publish",
+    "prerelease": "changeset version --snapshot alpha",
+    "prerelease-publish": "changeset publish --tag alpha --no-git-tag"
   },
   "dependencies": {
+    "@changesets/cli": "2.21.0",
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
     "babel-eslint": "10.0.1",
     "chalk": "2.4.2",
+    "confusing-browser-globals": "^1.0.9",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "4.2.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "1.6.0",
     "express": "4.16.4",
     "inquirer": "6.3.1",
     "lerna": "^3.13.4",
     "lerna-wizard": "1.0.9",
     "ora": "3.4.0",
+    "prettier": "^1.15.3",
     "semver": "6.0.0",
     "shelljs": "0.8.3",
     "slugify": "1.3.4",
+    "typescript": "^3.2.1",
     "webpack": "4.30.0",
     "webpack-cli": "3.3.2",
     "webpack-dev-middleware": "3.6.2",
     "webpack-hot-middleware": "2.24.4",
-    "yargs": "13.2.2",
-    "@typescript-eslint/eslint-plugin": "^1.12.0",
-    "@typescript-eslint/parser": "^1.12.0",
-    "confusing-browser-globals": "^1.0.9",
-    "eslint": "^5.3.0",
-    "eslint-config-airbnb": "^17.1.1",
-    "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.2",
-    "prettier": "^1.15.3",
-    "typescript": "^3.2.1"
+    "yargs": "13.2.2"
   }
 }

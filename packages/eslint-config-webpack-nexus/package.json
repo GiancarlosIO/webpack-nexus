@@ -1,11 +1,14 @@
 {
   "name": "eslint-config-webpack-nexus",
-  "version": "1.3.0",
+  "version": "2.0.1",
   "description": "Eslint configuration user by webpack-nexus cli",
   "author": "Giancarlos <giancarlos.isasi@gmail.com>",
   "homepage": "https://github.com/GiancarlosIO/webpack-nexus#readme",
   "license": "MIT",
   "main": "lib/eslint-config-webpack-nexus.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"

@@ -17,8 +17,7 @@ module.exports = () => {
       [
         require('@babel/preset-env'),
         {
-          // dont convert modules to commonjs
-          // we need to keep it with es6 imports to apply treeshaking
+          // dont convert modules to commonjs, we need to keep it with es6 imports to apply treeshaking
           modules: false,
           // Allow importing core-js in entrypoint and use browserlist to select polyfills
           useBuiltIns: 'entry', // maybe here we can try 'usage' 🤔
