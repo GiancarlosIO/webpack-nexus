@@ -20,8 +20,7 @@ module.exports = () => {
           // dont convert modules to commonjs, we need to keep it with es6 imports to apply treeshaking
           modules: false,
           // Allow importing core-js in entrypoint and use browserlist to select polyfills
-          // maybe here we can try 'usage' 🤔
-          useBuiltIns: 'entry',
+          useBuiltIns: 'entry', // maybe here we can try 'usage' 🤔
           corejs: '3.0',
           targets: isProduction
             ? ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9']
