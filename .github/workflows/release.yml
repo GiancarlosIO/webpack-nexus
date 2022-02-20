@@ -1,5 +1,5 @@
 
-name: Pre-release
+name: Release
 
 on:
   push:
@@ -29,11 +29,11 @@ jobs:
         with:
           version: 6.0.2
           run_install: true
-      - name: publish
+      - name: Publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-          pnpm changeset version
-          pnpm changeset publish
+          pnpm release
+          pnpm release-publish
           git push --follow-tags
