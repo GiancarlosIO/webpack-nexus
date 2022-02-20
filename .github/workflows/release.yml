@@ -5,15 +5,11 @@ on:
   push:
     branches:
       - "master"
-env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   build:
     name: Build and publish
     runs-on: ubuntu-latest
-    env:
-      NPM_TOKEN: $NPM_TOKEN
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -34,7 +30,10 @@ jobs:
           version: 6.0.2
           run_install: true
       - name: publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
           pnpm changeset version
           pnpm changeset publish
           git push --follow-tags

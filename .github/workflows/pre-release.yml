@@ -6,15 +6,11 @@ on:
     branches:
       - "prerelease/**"
       - "!master"
-env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   build:
     name: Build and publish
     runs-on: ubuntu-latest
-    env:
-      NPM_TOKEN: $NPM_TOKEN
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
