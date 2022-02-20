@@ -1,6 +1,6 @@
 {
   "name": "webpack-nexus",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "A cli to create your next super duper javascript project",
   "keywords": [
     "webpack",
