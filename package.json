@@ -17,7 +17,9 @@
   "scripts": {
     "release-all": "lerna publish",
     "prerelease": "changeset version --snapshot alpha",
-    "prerelease-publish": "changeset publish --tag alpha --no-git-tag"
+    "prerelease-publish": "changeset publish --tag alpha --no-git-tag",
+    "release": "changeset version",
+    "release-publish": "changeset publish"
   },
   "dependencies": {
     "@changesets/cli": "2.21.0",
