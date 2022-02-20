@@ -36,5 +36,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          pnpm whoami
           pnpm prerelease
           pnpm prerelease-publish
