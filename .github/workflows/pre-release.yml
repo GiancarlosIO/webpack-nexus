@@ -1,5 +1,5 @@
 
-name: Pre-release
+name: Release
 
 on:
   push:
