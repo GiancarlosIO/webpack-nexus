@@ -32,4 +32,6 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
           pnpm release
           pnpm release-publish
+          git add .
+          git commit -m "chore: release"
           git push --follow-tags
