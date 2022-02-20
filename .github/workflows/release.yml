@@ -20,10 +20,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Create npmrc
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          ls
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.1.0
         with:
