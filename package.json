@@ -15,7 +15,6 @@
     "pnpm": ">=6"
   },
   "scripts": {
-    "release-all": "lerna publish",
     "prerelease": "changeset version --snapshot alpha",
     "prerelease-publish": "changeset publish --tag alpha --no-git-tag",
     "release": "changeset version",
@@ -38,8 +37,6 @@
     "eslint-plugin-react-hooks": "1.6.0",
     "express": "4.16.4",
     "inquirer": "6.3.1",
-    "lerna": "^3.13.4",
-    "lerna-wizard": "1.0.9",
     "ora": "3.4.0",
     "prettier": "^1.15.3",
     "semver": "6.0.0",
