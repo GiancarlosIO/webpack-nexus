@@ -1,5 +1,5 @@
 ---
-'nexus.js': patch
+'@giancarlosio/nexus.js': patch
 ---
 
 Create package
