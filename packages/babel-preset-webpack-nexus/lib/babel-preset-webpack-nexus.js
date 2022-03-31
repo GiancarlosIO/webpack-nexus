@@ -76,7 +76,6 @@ module.exports = () => {
     plugins: [
       styledPlugin,
       // TODO: make work the hot reload with react!
-      require('react-hot-loader/babel'),
       [
         require('@babel/plugin-transform-destructuring'),
         {
