@@ -1,0 +1,22 @@
+{
+  "extends": "tsconfig/base.json",
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "preserve",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "module": "ES2020",
+    "emitDeclarationOnly": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "lib",
+    "./src/tests/**"
+  ],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ]
+}
