@@ -1,0 +1,7 @@
+{
+  "files": [],
+  "references": [
+    {"path": "nexus-routes"},
+    {"path": "nexus"}
+  ]
+}
