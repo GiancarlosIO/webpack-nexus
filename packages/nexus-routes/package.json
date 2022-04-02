@@ -2,8 +2,7 @@
   "name": "nexus-routes",
   "version": "0.0.1",
   "description": "A utility to create routing data",
-  "type": "module",
-  "exports": "./dist/index.js",
+  "main": "./dist/index.js",
   "engines": {
     "node": "14.18.1"
   },
@@ -14,7 +13,7 @@
     "test": "jest",
     "dev": "npm-run-all -l --parallel build:types:watch build:js:watch",
     "build": "pnpm build:types && pnpm build:js",
-    "run": "pnpm build && node --es-module-specifier-resolution=node ./dist/dev.js",
+    "run-test": "pnpm build && node --es-module-specifier-resolution=node ./dist/dev.js",
     "build:types": "tsc",
     "build:types:watch": "pnpm build:types -- --watch --preserveWatchOutput --pretty",
     "build:js:watch": "pnpm build:js -- -w",

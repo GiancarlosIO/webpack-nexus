@@ -4,7 +4,7 @@ const jestConfig = {
   transform: {
     '^.+\\.(t|j)sx?$': ['@swc/jest'],
   },
-  transformIgnorePatterns: ['node_modules/.pnpm/(?!ora|chalk)'],
+  // transformIgnorePatterns: ['node_modules/.pnpm/(?!ora|chalk)'],
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
 };
 

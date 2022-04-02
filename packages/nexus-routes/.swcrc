@@ -1,6 +1,6 @@
 {
   "module": {
-    "type": "es6",
+    "type": "commonjs",
     "strict": false,
     "strictMode": true,
     "lazy": false,
