@@ -1,25 +1,20 @@
 import path from 'path';
 import chokidar from 'chokidar';
-import minimist from 'minimist';
 
 import { isRouteConfigFile, createGlobalRouteFile } from './utils';
-
-const argv = minimist<{ debug: boolean }>(process.argv.slice(2), {
-  boolean: ['debug'],
-});
-
-function log(...value: Parameters<typeof console.log>) {
-  if (argv.debug) {
-    console.log(...value);
-  }
-}
 
 /**
  *
  * @param rootPath Path of the project root
  * @param srcFolderPath Relative folder path where the source code lives
  */
-async function main(rootPath: string, srcFolderPath: string) {
+async function main(rootPath: string, srcFolderPath: string, debug?: boolean) {
+  function log(...value: Parameters<typeof console.log>) {
+    if (debug) {
+      console.log(...value);
+    }
+  }
+
   // create the nexus-routes.tsx file before to watch files
   createGlobalRouteFile(rootPath, srcFolderPath);
   const watcher = chokidar.watch(path.resolve(rootPath, srcFolderPath), {
