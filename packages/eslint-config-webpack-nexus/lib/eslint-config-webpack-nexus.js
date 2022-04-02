@@ -42,7 +42,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: 'detec',
+      version: 'detect',
     },
     'import/parsers': {
       '@typescript-eslint/parser': extensions,
@@ -61,7 +61,7 @@ module.exports = {
         singleQuote: true,
         trailingComma: 'all',
         bracketSpacing: true,
-        jsxBracketSameLine: false,
+        bracketSameLine: false,
       },
     ],
     // js rules
