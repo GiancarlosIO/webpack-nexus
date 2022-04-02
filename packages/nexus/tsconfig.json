@@ -1,0 +1,21 @@
+{
+  "extends": "tsconfig/base.json",
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "out",
+  ],
+  "include": [
+    "next-env.d.ts",
+    "./src/shared/types/*.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}
