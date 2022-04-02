@@ -8,7 +8,11 @@ import { isRouteConfigFile, createGlobalRouteFile } from './utils';
  * @param rootPath Path of the project root
  * @param srcFolderPath Relative folder path where the source code lives
  */
-async function main(rootPath: string, srcFolderPath: string, debug?: boolean) {
+export async function nexusRoutes(
+  rootPath: string,
+  srcFolderPath: string,
+  debug?: boolean,
+) {
   function log(...value: Parameters<typeof console.log>) {
     if (debug) {
       console.log(...value);
@@ -45,5 +49,3 @@ async function main(rootPath: string, srcFolderPath: string, debug?: boolean) {
     .on('unlink', handler({ event: 'unlink' }))
     .on('unlinkDir', handler({ event: 'unlinkDir' }));
 }
-
-export default main;
