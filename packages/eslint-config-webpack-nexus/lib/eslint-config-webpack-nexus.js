@@ -113,6 +113,7 @@ module.exports = {
     ],
     'react/no-did-mount-set-state': 0,
     'react/no-array-index-key': 1,
+    'react/react-in-jsx-scope': 0,
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/label-has-for': 0,
     'jsx-a11y/label-has-associated-control': [

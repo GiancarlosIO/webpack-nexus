@@ -24,8 +24,15 @@ module.exports = {
       },
     ],
   },
+  plugins: [new HtmlWebpackPlugin()],
+  infrastructureLogging: {
+    level: 'warn',
+  },
+  stats: 'minimal',
   devServer: {
     historyApiFallback: true,
+    client: {
+      logging: 'warn',
+    },
   },
-  plugins: [new HtmlWebpackPlugin()],
 };

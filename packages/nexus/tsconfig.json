@@ -1,11 +1,14 @@
 {
   "extends": "tsconfig/base.json",
   "compilerOptions": {
+    "target": "es5",
+    "module": "CommonJS",
     "composite": true,
     "noEmit": true,
-    "emitDeclarationOnly": true,
+    "baseUrl": ".",
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "jsx": "react-jsx"
   },
   "exclude": [
     "node_modules",
