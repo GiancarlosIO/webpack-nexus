@@ -7,8 +7,12 @@
     "node": "14.18.1"
   },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
+  "bin": {
+    "nexus-routes": "./bin/nexus-routes.js"
+  },
   "scripts": {
     "test": "jest",
     "dev": "npm-run-all -l --parallel build:types:watch build:js:watch",
@@ -22,6 +26,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "react-router": ">=6.3.0"
+  },
   "devDependencies": {
     "@babel/core": "7.17.8",
     "@babel/preset-env": "7.16.11",

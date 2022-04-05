@@ -1,18 +1,11 @@
-import type { RouteProps } from 'react-router';
+import type { TRoute } from 'nexus-routes';
 
 import Layout from './Layout';
 
-type TRoute = RouteProps & {
-  outlet?: boolean;
-  name: string;
+const routes: TRoute = {
+  name: 'layout',
+  element: <Layout />,
+  path: '/',
 };
-const routes: TRoute[] = [
-  {
-    outlet: true,
-    element: <Layout />,
-    path: '/',
-    name: 'index',
-  },
-];
 
 export default routes;

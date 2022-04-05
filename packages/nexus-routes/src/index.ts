@@ -49,3 +49,5 @@ export async function nexusRoutes(
     .on('unlink', handler({ event: 'unlink' }))
     .on('unlinkDir', handler({ event: 'unlinkDir' }));
 }
+
+export * from './types';

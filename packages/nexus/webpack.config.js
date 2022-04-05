@@ -4,11 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].min.js',
     chunkFilename: '[name].[contenthash].chunk.min.js',
+    publicPath: '/',
     clean: true,
   },
   resolve: {
@@ -18,13 +19,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.tsx?/,
+        test: /.tsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
   infrastructureLogging: {
     level: 'warn',
   },

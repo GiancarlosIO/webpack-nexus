@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node server.ts"
+    "nexus": "nexus-routes --src=\"src\"",
+    "webpack:dev": "webpack serve",
+    "dev": "npm-run-all -l -p  webpack:dev"
   },
   "publishConfig": {
     "access": "public"
@@ -34,6 +36,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-router": "6.3.0",
+    "react-router-dom": "^6.3.0",
     "tsconfig": "workspace:*"
   }
 }
