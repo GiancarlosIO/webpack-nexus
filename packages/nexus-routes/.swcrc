@@ -13,6 +13,11 @@
       "tsx": true,
       "decorators": false,
       "dynamicImport": false
+    },
+    "transform": {
+      "react": {
+        "runtime": "automatic"
+      }
     }
   }
 }

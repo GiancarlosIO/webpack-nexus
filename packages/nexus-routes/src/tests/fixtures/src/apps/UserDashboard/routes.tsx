@@ -1,16 +1,12 @@
 import React from 'react';
-import type { RouteObject } from 'react-router';
 
 import UserDashboard from './UserDashboard';
 import Sidebar from './Sidebar';
-import MyProducts from './MyProducts';
+import MyProducts, { MySubProducts } from './MyProducts';
 
-type TRoute = RouteObject & {
-  name: string;
-  children?: TRoute[];
-};
+import type { TRoutes } from '../../../../../types';
 
-const routes: TRoute[] = [
+const routes: TRoutes = [
   {
     element: <UserDashboard />,
     path: 'panel',
@@ -25,7 +21,13 @@ const routes: TRoute[] = [
         element: <MyProducts />,
         path: 'my-products',
         name: 'myProducts',
-        outlet: false,
+        children: [
+          {
+            name: 'mySubProducts',
+            element: <MySubProducts />,
+            path: ':productId',
+          },
+        ],
       },
     ],
   },

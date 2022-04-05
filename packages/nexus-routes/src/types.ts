@@ -1,8 +1,8 @@
 import type { RouteObject } from 'react-router';
 
-export type TRoute = RouteObject & {
+export type TRoute = Omit<RouteObject, 'children'> & {
   name: string;
-  children?: TRoute[];
+  children?: [TRoute, ...TRoute[]];
 };
 
 export type TRoutes = [TRoute, ...TRoute[]];

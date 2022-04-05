@@ -1,28 +1,34 @@
-import fs from 'fs/promises';
-import path from 'path';
-import { getrouteImportPaths, createGlobalRouteFile } from '../utils';
+import fs from "fs/promises";
+import path from "path";
+import {
+  getrouteImportPaths,
+  createGlobalRouteFile,
+  addOutletToRoutes,
+} from "../utils";
 
-const rootPath = path.resolve(__dirname, './fixtures');
-const srcFolder = 'src';
+import routesWithChildren from "./fixtures/src/apps/UserDashboard/routes";
+import routesWithoutChildren from "./fixtures/src/apps/Homepage/routes";
+
+const rootPath = path.resolve(__dirname, "./fixtures");
+const srcFolder = "src";
 const routeGlobalRouteFilePath = path.resolve(
   __dirname,
-  './fixtures/src/nexus-routes.tsx',
+  "./fixtures/src/nexus-routes.tsx"
 );
 
-describe('nexus-routes-loader', () => {
-  it('should return the routes imports', async () => {
+describe("nexus-routes-loader", () => {
+  it("should return the routes imports", async () => {
     const routeImportPaths = await getrouteImportPaths(rootPath, srcFolder);
 
     expect(routeImportPaths).toMatchInlineSnapshot(`
       Array [
-        "./routes",
         "./apps/Homepage/routes",
         "./apps/ProductDetail/routes",
         "./apps/UserDashboard/routes",
       ]
     `);
   });
-  it('should create the global route file that imports all route configurations', async () => {
+  it("should create the global route file that imports all route configurations", async () => {
     const code = await createGlobalRouteFile(rootPath, srcFolder);
 
     expect(code).toMatchInlineSnapshot(`
@@ -32,21 +38,91 @@ describe('nexus-routes-loader', () => {
         =============================================
         */
 
-      import routeConfig1 from './routes';
-      import routeConfig2 from './apps/Homepage/routes';
-      import routeConfig3 from './apps/ProductDetail/routes';
-      import routeConfig4 from './apps/UserDashboard/routes';
+      import { useRoutes } from 'react-router-dom';
 
-      const routes = [
+      // This will contains the root Layout component
+      import rootRoute from './rootRoute.tsx';
+      import routeConfig1 from './apps/Homepage/routes';
+      import routeConfig2 from './apps/ProductDetail/routes';
+      import routeConfig3 from './apps/UserDashboard/routes';
+
+      export const childrenRoutes = [
         ...routeConfig1,
         ...routeConfig2,
         ...routeConfig3,
-        ...routeConfig4,
       ];
 
-      export default routes;
+      export const appRoutes = [
+        {
+          ...rootRoute,
+          element: (
+            <>
+              {rootRoute.element}
+              <Outlet />
+            </>
+          ),
+          children: childrenRoutes,
+        },
+      ];
+
+      /**
+       * Use this in the root of your application. Eg:
+       * import { RouteElements } from './nexus-routes';
+       * ...
+       *
+       * const Root = () => (
+       *  <BrowserRouter>
+       *    <RouteElements />
+       *  </BrowserRouter>
+       * )
+       *
+       */
+      export const RoutesElements = () => {
+        const elements = useRoutes(rootRoutes);
+
+        return elements;
+      };
       "
     `);
     await fs.unlink(routeGlobalRouteFilePath);
+  });
+
+  it("should append Outlet component if the current route contains a children property", () => {
+    expect(addOutletToRoutes(routesWithChildren)).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "children": Array [
+            Object {
+              "element": <Sidebar />,
+              "index": true,
+              "name": "sideBar",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "element": <MySubProducts />,
+                  "name": "mySubProducts",
+                  "path": ":productId",
+                },
+              ],
+              "element": <React.Fragment>
+                <MyProducts />
+                 
+                <Outlet />
+              </React.Fragment>,
+              "name": "myProducts",
+              "path": "my-products",
+            },
+          ],
+          "element": <React.Fragment>
+            <UserDashboard />
+             
+            <Outlet />
+          </React.Fragment>,
+          "name": "userDashboard",
+          "path": "panel",
+        },
+      ]
+    `);
   });
 });

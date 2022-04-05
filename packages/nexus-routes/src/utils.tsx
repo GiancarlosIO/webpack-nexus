@@ -2,10 +2,20 @@ import fs from 'fs/promises';
 import path from 'path';
 import klaw from 'klaw';
 import ora from 'ora';
+import chalk from 'chalk';
 
+import { Outlet } from 'react-router-dom';
+
+import type { TRoutes } from './types';
+
+const { log } = console;
+
+const textLogger = (text: string) =>
+  `${chalk.blue.bold('nexus-routes')}: ${text}`;
 /**
  * The root path of the web project
  * */
+
 type TRootPath = string;
 /**
  * The name of the folder where the source files lives
@@ -21,10 +31,13 @@ export async function getrouteImportPaths(
   rootPath: TRootPath,
   srcFolderPath: TSrcFolder,
 ) {
-  const indexRoutePath = './routes';
+  const spinner = ora({
+    text: textLogger('analyzing routes.tsx files...'),
+    spinner: 'aesthetic',
+  }).start();
   const srcPath = path.resolve(rootPath, srcFolderPath);
 
-  const routes = [indexRoutePath];
+  const routes = [];
 
   // eslint-disable-next-line no-restricted-syntax
   for await (const file of klaw(path.resolve(srcPath, 'apps'))) {
@@ -36,6 +49,10 @@ export async function getrouteImportPaths(
       routes.push(routeImportPath);
     }
   }
+
+  spinner.succeed(
+    textLogger('Finish to recollect information from routes.tsx files.'),
+  );
 
   return routes;
 }
@@ -50,7 +67,7 @@ export async function createGlobalRouteFile(
   srcFolderPath: TSrcFolder,
 ) {
   const spinner = ora({
-    text: '> building the nexus-route file',
+    text: textLogger('building the nexus-route file'),
     spinner: 'aesthetic',
   }).start();
   const routeImportPaths = await getrouteImportPaths(rootPath, srcFolderPath);
@@ -66,29 +83,87 @@ export async function createGlobalRouteFile(
     variableName: `routeConfig${index + 1}`,
   }));
   const code = `${head}
+import { useRoutes } from 'react-router-dom';
+
+// This will contains the root Layout component
+import rootRoute from './rootRoute.tsx';
 ${routes
   .map((route) => `import ${route.variableName} from '${route.importPath}';`)
   .join('\n')}
 
-const routes = [
+export const childrenRoutes = [
   ${routes
     .map((r, index) => `${index > 0 ? '  ' : ''}...${r.variableName},`)
     .join('\n')}
 ];
 
-export default routes;
+export const appRoutes = [
+  {
+    ...rootRoute,
+    element: (
+      <>
+        {rootRoute.element}
+        <Outlet />
+      </>
+    ),
+    children: childrenRoutes,
+  },
+];
+
+/**
+ * Use this in the root of your application. Eg:
+ * import { RouteElements } from './nexus-routes';
+ * ...
+ *
+ * const Root = () => (
+ *  <BrowserRouter>
+ *    <RouteElements />
+ *  </BrowserRouter>
+ * )
+ *
+ */
+export const RoutesElements = () => {
+  const elements = useRoutes(rootRoutes);
+
+  return elements;
+};
 `;
 
-  await fs.writeFile(
-    path.resolve(rootPath, srcFolderPath, 'nexus-routes.tsx'),
-    code,
-    'utf-8',
-  );
-  spinner.succeed('Success to build the nexus-route.tsx file');
+  try {
+    await fs.writeFile(
+      path.resolve(rootPath, srcFolderPath, 'nexus-routes.tsx'),
+      code,
+      'utf-8',
+    );
+  } catch (e) {
+    log(
+      chalk.red.bold('> nexus-routes: Error to create the nexus-routes file.'),
+    );
+    console.error(e);
+  }
+
+  spinner.succeed(textLogger('Success to build the nexus-route.tsx file'));
 
   return code;
 }
 
 export function isRouteConfigFile(filename: string) {
   return filename.split('/').slice(-1)[0] === 'routes.tsx';
+}
+
+export function addOutletToRoutes(routes: TRoutes) {
+  routes.forEach((route) => {
+    if (route.children) {
+      if (route.element) {
+        route.element = (
+          <>
+            {route.element} <Outlet />
+          </>
+        );
+      }
+      route.children = addOutletToRoutes(route.children);
+    }
+  });
+
+  return routes;
 }
