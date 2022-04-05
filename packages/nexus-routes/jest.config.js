@@ -8,4 +8,4 @@ const jestConfig = {
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
 };
 
-export default jestConfig;
+module.exports = jestConfig;
