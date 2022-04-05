@@ -15,6 +15,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "dev": "npm-run-all -l --parallel build:types:watch build:js:watch",
     "build": "pnpm build:types && pnpm build:js",
     "run-test": "pnpm build && node --es-module-specifier-resolution=node ./dist/dev.js",
