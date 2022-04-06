@@ -21,6 +21,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "dev": "npm-run-all -l --parallel build:types:watch build:js:watch",
+    "lint": "eslint --ext .js,.jsx,.tsx,.ts .",
+    "lint:fix": "pnpm lint -- --fix",
     "build": "pnpm build:types && pnpm build:js",
     "run-test": "pnpm build && node --es-module-specifier-resolution=node ./dist/dev.js",
     "build:types": "tsc",

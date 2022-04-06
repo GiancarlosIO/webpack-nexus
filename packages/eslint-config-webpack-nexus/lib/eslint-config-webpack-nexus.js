@@ -1,6 +1,6 @@
 const restrictedGlobals = require('confusing-browser-globals');
 
-const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+const extensions = ['.js', '.jsx', '.ts', '.tsx', '.json'];
 
 // Here we are using the typescript parser for all files (js and ts)
 module.exports = {

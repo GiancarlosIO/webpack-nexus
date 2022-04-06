@@ -4,14 +4,16 @@
     "node_modules",
     "dist",
     "lib",
-    "bin"
+    "bin",
   ],
   "include": [
+    ".eslintrc.js",
     "babel.config.js",
     "jest.config.js",
     ".eslintrc.js",
     "./src/**/*.ts",
     "./src/**/*.tsx",
-    "./src/tests/**/*/*.tsx"
+    "./src/tests/**/*/*.tsx",
+    "./react-helpers.d.ts"
   ]
 }

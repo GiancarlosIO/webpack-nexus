@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "nexus": "nexus-routes --src=\"src\"",
     "webpack:dev": "webpack serve",
     "dev": "FORCE_COLOR=1 npm-run-all -l -p nexus webpack:dev"

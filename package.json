@@ -18,7 +18,12 @@
     "prerelease": "changeset version --snapshot alpha",
     "prerelease-publish": "changeset publish --tag alpha --no-git-tag",
     "release": "changeset version",
-    "release-publish": "changeset publish"
+    "release-publish": "changeset publish",
+    "dev": "FORCE_COLOR=1 turbo run dev",
+    "build": "FORCE_COLOR=1 turbo run build",
+    "test": "FORCE_COLOR=1 turbo run test",
+    "lint": "FORCE_COLOR=1 turbo run lint",
+    "lint:fix": "FORCE_COLOR=1 turbo run lint:fix"
   },
   "dependencies": {
     "@changesets/cli": "2.21.0",
@@ -49,5 +54,8 @@
     "webpack-dev-middleware": "3.6.2",
     "webpack-hot-middleware": "2.24.4",
     "yargs": "13.2.2"
+  },
+  "devDependencies": {
+    "turbo": "^1.1.10"
   }
 }

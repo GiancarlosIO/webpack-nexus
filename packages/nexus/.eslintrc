@@ -1,4 +1,3 @@
 {
-  "root": false,
-  "extends": "../../.eslintrc"
+  "extends": "../../.eslintrc.js.js"
 }
