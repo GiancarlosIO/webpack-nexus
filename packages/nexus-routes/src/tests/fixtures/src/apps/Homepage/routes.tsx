@@ -1,13 +1,9 @@
 import React from 'react';
-import type { RouteProps } from 'react-router';
+import type { TRoutes } from '../../../../../types';
 
 import Homepage from './Homepage';
 
-type TRoute = RouteProps & {
-  outlet?: boolean;
-  name: string;
-};
-const routes: TRoute[] = [
+const routes: TRoutes = [
   {
     element: <Homepage />,
     index: true,

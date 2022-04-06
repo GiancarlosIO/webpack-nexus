@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+import { addOutletToRoutes } from 'nexus-routes/react-helpers';
 import type { TRoutes } from 'nexus-routes';
 import {
   UserDashboard,
@@ -9,7 +11,7 @@ import {
 const routes: TRoutes = [
   {
     name: 'rootUserDashboard',
-    path: 'panel',
+    path: 'userDashboard',
     element: <Sidebard />,
     children: [
       {
@@ -21,6 +23,13 @@ const routes: TRoutes = [
         name: 'myProducts',
         path: 'my-products',
         element: <MyProducts />,
+        children: [
+          {
+            path: ':productId',
+            element: <div>product ID</div>,
+            name: 'productDetail',
+          },
+        ],
       },
       {
         name: 'myInvoices',
@@ -31,4 +40,4 @@ const routes: TRoutes = [
   },
 ];
 
-export default routes;
+export default addOutletToRoutes(routes);

@@ -3,12 +3,16 @@
   "version": "0.0.1",
   "description": "A utility to create routing data",
   "main": "./dist/index.js",
+  "exports": {
+    "./react-helpers": "./dist/react-helpers.js"
+  },
   "engines": {
     "node": "14.18.1"
   },
   "files": [
     "dist",
-    "bin"
+    "bin",
+    "react-helpers.js"
   ],
   "bin": {
     "nexus-routes": "./bin/nexus-routes.js"

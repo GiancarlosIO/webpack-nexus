@@ -1,7 +1,11 @@
 import path from 'path';
 import chokidar from 'chokidar';
 
-import { isRouteConfigFile, createGlobalRouteFile } from './utils';
+import {
+  isRouteConfigFile,
+  createGlobalRouteFile,
+  validateRootRouteFile,
+} from './utils';
 
 /**
  *
@@ -13,6 +17,13 @@ export async function nexusRoutes(
   srcFolderPath: string,
   debug?: boolean,
 ) {
+  let rootFileValidated = false;
+
+  if (!rootFileValidated) {
+    await validateRootRouteFile(rootPath, srcFolderPath);
+    rootFileValidated = true;
+  }
+
   function log(...value: Parameters<typeof console.log>) {
     if (debug) {
       console.log(...value);
@@ -51,3 +62,4 @@ export async function nexusRoutes(
 }
 
 export * from './types';
+export * from './utils';

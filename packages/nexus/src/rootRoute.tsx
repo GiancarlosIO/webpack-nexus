@@ -1,10 +1,10 @@
 import type { TRoute } from 'nexus-routes';
 
-import Layout from './Layout';
+import GlobalLayout from './GlobalLayout';
 
 const routes: TRoute = {
   name: 'layout',
-  element: <Layout />,
+  element: <GlobalLayout />,
   path: '/',
 };
 

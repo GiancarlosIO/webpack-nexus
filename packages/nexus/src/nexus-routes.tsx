@@ -6,39 +6,43 @@
 
 import { Outlet, useRoutes } from 'react-router-dom';
 
-import routeConfig1 from './routes';
-import routeConfig2 from './apps/Homepage/routes';
-import routeConfig3 from './apps/UserDashboard/routes';
+// This will contains the root Layout component
+import rootRoute from './rootRoute';
+import routeConfig1 from './apps/Homepage/routes';
+import routeConfig2 from './apps/UserDashboard/routes';
 
-const routes = [...routeConfig2, ...routeConfig3];
+export const childrenRoutes = [
+  ...routeConfig1,
+  ...routeConfig2,
+];
 
-routes.map((route) => {
-  if (route.children) {
-    route.element = (
-      <>
-        {route.element} <Outlet />
-      </>
-    );
-  }
-  return route;
-});
-
-const rootRoutes = [
+export const appRoutes = [
   {
-    ...routeConfig1,
+    ...rootRoute,
     element: (
       <>
-        {routeConfig1.element}
+        {rootRoute.element}
         <Outlet />
       </>
     ),
-    children: routes,
+    children: childrenRoutes,
   },
 ];
 
+/**
+ * Use this in the root of your application. Eg:
+ * import { RouteElements } from './nexus-routes';
+ * ...
+ *
+ * const Root = () => (
+ *  <BrowserRouter>
+ *    <RouteElements />
+ *  </BrowserRouter>
+ * )
+ *
+ */
 export const RoutesElements = () => {
-  const elements = useRoutes(rootRoutes);
+  const elements = useRoutes(appRoutes);
 
   return elements;
 };
-export default routes;

@@ -4,14 +4,11 @@ import klaw from 'klaw';
 import ora from 'ora';
 import chalk from 'chalk';
 
-import { Outlet } from 'react-router-dom';
-
-import type { TRoutes } from './types';
-
 const { log } = console;
 
 const textLogger = (text: string) =>
   `${chalk.blue.bold('nexus-routes')}: ${text}`;
+const ROOT_ROUTE_FILE = 'rootRoute.tsx';
 /**
  * The root path of the web project
  * */
@@ -57,6 +54,60 @@ export async function getrouteImportPaths(
   return routes;
 }
 
+export async function checkIfFileExists(filepath: string) {
+  // it will thrown an error if the file doesn't exists
+  try {
+    await fs.access(filepath);
+    // file exists
+    return true;
+  } catch (e) {
+    // the file doesn't exists
+    return false;
+  }
+}
+
+/**
+ * It will return true if the file was created, otherwise, it will return false
+ */
+export async function validateRootRouteFile(
+  rootPath: TRootPath,
+  srcFolderPath: TSrcFolder,
+) {
+  const spinner = ora({
+    text: textLogger(`Validating the ${srcFolderPath}/rootRoute.tsx file...`),
+    spinner: 'aesthetic',
+  }).start();
+  const filePath = path.resolve(rootPath, srcFolderPath, ROOT_ROUTE_FILE);
+  const fileExists = await checkIfFileExists(filePath);
+
+  if (!fileExists) {
+    // the file doesn't exists, create it
+    const code = `import type { TRoute } from 'nexus-routes';
+
+import GlobalLayout from './GlobalLayout';
+
+const routes: TRoute = {
+  name: 'layout',
+  element: <GlobalLayout />,
+  path: '/',
+};
+
+export default routes;`;
+
+    await fs.writeFile(filePath, code, 'utf-8');
+    spinner.succeed(
+      textLogger(
+        `The rootRoute.tsx was created because it was missing in the ${srcFolderPath}/ folder.`,
+      ),
+    );
+    return;
+  }
+
+  spinner.succeed(
+    textLogger(`Finish to validate the ${srcFolderPath}/rootRoute.tsx file.`),
+  );
+}
+
 /**
  *
  * @param rootPath Path of the project root
@@ -83,10 +134,10 @@ export async function createGlobalRouteFile(
     variableName: `routeConfig${index + 1}`,
   }));
   const code = `${head}
-import { useRoutes } from 'react-router-dom';
+import { Outlet, useRoutes } from 'react-router-dom';
 
 // This will contains the root Layout component
-import rootRoute from './rootRoute.tsx';
+import rootRoute from './rootRoute';
 ${routes
   .map((route) => `import ${route.variableName} from '${route.importPath}';`)
   .join('\n')}
@@ -123,7 +174,7 @@ export const appRoutes = [
  *
  */
 export const RoutesElements = () => {
-  const elements = useRoutes(rootRoutes);
+  const elements = useRoutes(appRoutes);
 
   return elements;
 };
@@ -149,21 +200,4 @@ export const RoutesElements = () => {
 
 export function isRouteConfigFile(filename: string) {
   return filename.split('/').slice(-1)[0] === 'routes.tsx';
-}
-
-export function addOutletToRoutes(routes: TRoutes) {
-  routes.forEach((route) => {
-    if (route.children) {
-      if (route.element) {
-        route.element = (
-          <>
-            {route.element} <Outlet />
-          </>
-        );
-      }
-      route.children = addOutletToRoutes(route.children);
-    }
-  });
-
-  return routes;
 }
