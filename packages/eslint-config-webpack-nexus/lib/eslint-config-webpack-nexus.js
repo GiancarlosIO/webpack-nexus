@@ -80,7 +80,6 @@ module.exports = {
     'global-require': 0,
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': 0,
-    'import/no-unresolved': 0,
     import: 0,
     'func-names': 0,
     'space-before-function-paren': 0,
@@ -155,19 +154,6 @@ module.exports = {
       },
     ],
     'react/destructuring-assignment': 0,
-
-    // typescript/react rules
-    '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/no-use-before-define': [
-      'warn',
-      {
-        functions: false,
-        classes: false,
-        variables: false,
-        typedefs: false,
-      },
-    ],
   },
   overrides: [
     {
@@ -182,6 +168,21 @@ module.exports = {
         // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
         'no-undef': 'off',
         'no-use-before-define': 'off',
+
+        'import/no-unresolved': 0,
+
+        // typescript/react rules
+        '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-use-before-define': [
+          'warn',
+          {
+            functions: false,
+            classes: false,
+            variables: false,
+            typedefs: false,
+          },
+        ],
       },
     },
   ],

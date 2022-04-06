@@ -132,8 +132,11 @@ importers:
   packages/eslint-config-webpack-nexus:
     specifiers:
       confusing-browser-globals: 1.0.9
+      tsconfig: workspace:*
     dependencies:
       confusing-browser-globals: 1.0.9
+    devDependencies:
+      tsconfig: link:../tsconfig
 
   packages/nexus:
     specifiers:

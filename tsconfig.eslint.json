@@ -6,7 +6,6 @@
     "lib"
   ],
   "include": [
-    ".eslintrc.js",
     "**/*.ts",
     "**/.tsx"
   ]
