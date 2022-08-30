@@ -36,6 +36,7 @@ module.exports = () => {
       [
         require('@babel/preset-react'),
         {
+          runtime: 'automatic',
           // Adds component stack to warning messages
           // Adds __self attribute to JSX which React will use for some warnings
           development: !isProduction,
@@ -76,7 +77,6 @@ module.exports = () => {
     plugins: [
       styledPlugin,
       // TODO: make work the hot reload with react!
-      require('react-hot-loader/babel'),
       [
         require('@babel/plugin-transform-destructuring'),
         {

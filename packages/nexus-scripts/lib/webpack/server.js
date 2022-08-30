@@ -13,7 +13,7 @@ const webpackDevConfig = require('./configurations/webpack.dev');
 // utils
 const clearConsole = require('../utils/clearConsole');
 
-const runServer = extraConfiguration => {
+const runServer = (extraConfiguration) => {
   const webpackConfig = webpackDevConfig({}, extraConfiguration);
   const hmrSocketPath = `${webpackConfig.output.publicPath}__webpack_hmr`;
   // const webpackHotMiddlewarePackagePath = path.resolve(

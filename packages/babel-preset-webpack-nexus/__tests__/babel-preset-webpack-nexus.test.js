@@ -1,7 +1,5 @@
-'use strict';
-
 const babelPresetWebpackNexus = require('..');
 
 describe('babel-preset-webpack-nexus', () => {
-    it('needs tests');
+  it('needs tests');
 });

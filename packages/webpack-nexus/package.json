@@ -27,14 +27,13 @@
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/GiancarlosIO/webpack-nexus/issues"
   },
   "dependencies": {
     "@types/chalk": "^2.2.0",
-    "chalk": "^2.4.2",
+    "chalk": "4.1.2",
     "inquirer": "^7.0.0",
     "minimist": "^1.2.5",
     "ora": "^4.0.1"

@@ -1,6 +1,6 @@
 const restrictedGlobals = require('confusing-browser-globals');
 
-const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+const extensions = ['.js', '.jsx', '.ts', '.tsx', '.json'];
 
 // Here we are using the typescript parser for all files (js and ts)
 module.exports = {
@@ -42,7 +42,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: 'detec',
+      version: 'detect',
     },
     'import/parsers': {
       '@typescript-eslint/parser': extensions,
@@ -61,7 +61,7 @@ module.exports = {
         singleQuote: true,
         trailingComma: 'all',
         bracketSpacing: true,
-        jsxBracketSameLine: false,
+        bracketSameLine: false,
       },
     ],
     // js rules
@@ -113,6 +113,7 @@ module.exports = {
     ],
     'react/no-did-mount-set-state': 0,
     'react/no-array-index-key': 1,
+    'react/react-in-jsx-scope': 0,
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/label-has-for': 0,
     'jsx-a11y/label-has-associated-control': [
@@ -153,19 +154,6 @@ module.exports = {
       },
     ],
     'react/destructuring-assignment': 0,
-
-    // typescript/react rules
-    '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/no-use-before-define': [
-      'warn',
-      {
-        functions: false,
-        classes: false,
-        variables: false,
-        typedefs: false,
-      },
-    ],
   },
   overrides: [
     {
@@ -180,6 +168,21 @@ module.exports = {
         // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
         'no-undef': 'off',
         'no-use-before-define': 'off',
+
+        'import/no-unresolved': 0,
+
+        // typescript/react rules
+        '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-use-before-define': [
+          'warn',
+          {
+            functions: false,
+            classes: false,
+            variables: false,
+            typedefs: false,
+          },
+        ],
       },
     },
   ],
