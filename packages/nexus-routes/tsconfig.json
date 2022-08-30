@@ -7,8 +7,7 @@
     "rootDir": "./src",
     "baseUrl": ".",
     "module": "ES2020",
-    "emitDeclarationOnly": true,
-    "declarationMap": true
+    "emitDeclarationOnly": true
   },
   "exclude": [
     "node_modules",
