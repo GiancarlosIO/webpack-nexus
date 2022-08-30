@@ -3,6 +3,7 @@ import path from 'path';
 import klaw from 'klaw';
 import ora from 'ora';
 import chalk from 'chalk';
+import slash from 'slash';
 
 const { log } = console;
 
@@ -39,8 +40,8 @@ export async function getrouteImportPaths(
   // eslint-disable-next-line no-restricted-syntax
   for await (const file of klaw(path.resolve(srcPath, 'apps'))) {
     if (file.stats.isFile() && file.path.includes('routes.tsx')) {
-      const routeImportPath = `.${file.path
-        .replace(srcPath, '')
+      const routeImportPath = `.${slash(file.path)
+        .replace(slash(srcPath), '')
         .replace('.tsx', '')}`;
 
       routes.push(routeImportPath);
@@ -134,6 +135,7 @@ export async function createGlobalRouteFile(
     variableName: `routeConfig${index + 1}`,
   }));
   const code = `${head}
+import { addOutletToRoutes } from 'nexus-routes/react-helpers';
 import { Outlet, useRoutes } from 'react-router-dom';
 
 // This will contains the root Layout component
@@ -144,7 +146,10 @@ ${routes
 
 export const childrenRoutes = [
   ${routes
-    .map((r, index) => `${index > 0 ? '  ' : ''}...${r.variableName},`)
+    .map(
+      (r, index) =>
+        `${index > 0 ? '  ' : ''}...addOutletToRoutes(${r.variableName}),`,
+    )
     .join('\n')}
 ];
 
@@ -199,5 +204,5 @@ export const RoutesElements = () => {
 }
 
 export function isRouteConfigFile(filename: string) {
-  return filename.split('/').slice(-1)[0] === 'routes.tsx';
+  return path.basename(filename) === 'routes.tsx';
 }

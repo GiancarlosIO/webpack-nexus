@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved */
-import { addOutletToRoutes } from 'nexus-routes/react-helpers';
 import type { TRoutes } from 'nexus-routes';
 import {
   UserDashboard,
@@ -40,4 +39,4 @@ const routes: TRoutes = [
   },
 ];
 
-export default addOutletToRoutes(routes);
+export default routes;

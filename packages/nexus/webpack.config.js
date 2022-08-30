@@ -33,8 +33,9 @@ module.exports = {
   infrastructureLogging: {
     level: 'warn',
   },
-  stats: 'minimal',
+  // stats: 'minimal',
   devServer: {
+    port: 3000,
     historyApiFallback: true,
     client: {
       logging: 'warn',

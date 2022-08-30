@@ -26,8 +26,8 @@
     "build": "pnpm build:types && pnpm build:js",
     "run-test": "pnpm build && node --es-module-specifier-resolution=node ./dist/dev.js",
     "build:types": "tsc",
-    "build:types:watch": "pnpm build:types -- --watch --preserveWatchOutput --pretty",
-    "build:js:watch": "pnpm build:js -- -w",
+    "build:types:watch": "pnpm build:types --watch --preserveWatchOutput --pretty",
+    "build:js:watch": "pnpm build:js -w",
     "build:js": "swc ./src -d dist"
   },
   "keywords": [],
@@ -77,6 +77,7 @@
     "chokidar": "3.5.3",
     "minimist": "^1.2.5",
     "ora": "5.4.1",
+    "slash": "3.0.0",
     "tsconfig": "workspace:*"
   }
 }

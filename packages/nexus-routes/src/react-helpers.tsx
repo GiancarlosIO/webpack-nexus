@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import type { TRoutes } from './types';
 
+// Add the <Outlet /> component to each route
 export function addOutletToRoutes(routes: TRoutes) {
   routes.forEach((route) => {
     if (route.children) {

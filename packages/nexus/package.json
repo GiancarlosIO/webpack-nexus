@@ -6,7 +6,7 @@
   "scripts": {
     "nexus": "nexus-routes --src=\"src\"",
     "webpack:dev": "webpack serve",
-    "dev": "FORCE_COLOR=1 npm-run-all -l -p nexus webpack:dev"
+    "dev": "npx cross-env FORCE_COLOR=1 npm-run-all -l -p nexus webpack:dev"
   },
   "publishConfig": {
     "access": "public"
@@ -31,6 +31,7 @@
   "dependencies": {
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",
+    "cross-env": "7.0.3",
     "nexus-routes": "workspace:*",
     "react": "18.0.0",
     "react-dom": "18.0.0",

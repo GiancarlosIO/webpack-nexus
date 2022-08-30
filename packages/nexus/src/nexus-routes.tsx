@@ -4,6 +4,7 @@
   =============================================
   */
 
+import { addOutletToRoutes } from 'nexus-routes/react-helpers';
 import { Outlet, useRoutes } from 'react-router-dom';
 
 // This will contains the root Layout component
@@ -12,8 +13,8 @@ import routeConfig1 from './apps/Homepage/routes';
 import routeConfig2 from './apps/UserDashboard/routes';
 
 export const childrenRoutes = [
-  ...routeConfig1,
-  ...routeConfig2,
+  ...addOutletToRoutes(routeConfig1),
+  ...addOutletToRoutes(routeConfig2),
 ];
 
 export const appRoutes = [
